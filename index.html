@@ -19,7 +19,8 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #BBDFEB 0%, #A6D6C8 100%);
+            background: linear-gradient(135deg, rgba(187, 223, 235, 0.9) 0%, rgba(166, 214, 200, 0.9) 100%), 
+                        url('images/banner-fondo.jpg') center/cover;
             padding: 40px 20px 60px;
             text-align: center;
             position: relative;
@@ -72,6 +73,7 @@
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -126,7 +128,6 @@
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
-            background: #f0f0f0;
         }
 
         .hero-ambientes img:hover {
@@ -292,7 +293,6 @@
             width: 100%;
             height: 280px;
             object-fit: cover;
-            background: #f0f0f0;
         }
 
         .pack-content {
@@ -346,7 +346,6 @@
             height: 350px;
             object-fit: cover;
             display: block;
-            background: #f0f0f0;
         }
 
         .acuarela-badge {
@@ -619,9 +618,9 @@
     <div class="container">
         <div class="section" style="margin-top: 40px;">
             <div class="hero-ambientes">
-                <img src="images/ambiente-cuarto-1.jpg">
-                <img src="images/ambiente-cuarto-2.jpg">
-                <img src="images/ambiente-cuarto-3.jpg">
+                <img src="images/ambiente-cuarto-1.jpg" alt="Ambiente 1">
+                <img src="images/ambiente-cuarto-2.jpg" alt="Ambiente 2">
+                <img src="images/ambiente-cuarto-3.jpg" alt="Ambiente 3">
             </div>
         </div>
 
@@ -739,7 +738,7 @@
                 <p><strong>• Personalización Real:</strong> Los nombres están escritos a mano con mi caligrafía, no son fuentes digitales.</p>
                 <p><strong>• Calidad Premium:</strong> Materiales profesionales de alta durabilidad.</p>
                 <p><strong>• Obra Única:</strong> Las acuarelas personalizadas son piezas únicas e irrepetibles, creadas solo para tu familia.</p>
-                <p><strong>• Firmado por el Artista:</strong> Cada obra lleva mi firma y numeración, garantizando autenticidad.</p>
+                <p><strong>• Firmado por el Artista:</strong> Cada obra lleva mi firma y sello de autenticidad.</p>
             </div>
         </div>
 
@@ -812,4 +811,247 @@
                 </div>
                 <div class="acuarela-example">
                     <img src="images/acuarela-ejemplo-2.jpg" alt="Acuarela Ejemplo 2">
-                    
+                    <div class="acuarela-badge">Obra Única</div>
+                </div>
+            </div>
+
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="emoji">💭</div>
+                    <h4>Consulta Personalizada</h4>
+                    <p>Conversamos sobre tus ideas, los colores que te gustan y qué representa para ti</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="emoji">✏️</div>
+                    <h4>Bocetos Previos</h4>
+                    <p>Te muestro 1 boceto para que apruebes antes de empezar la obra final. Incluye 1 ronda de cambios</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="emoji">🎨</div>
+                    <h4>Creación Artística</h4>
+                    <p>Trabajo en tu acuarela con mi estilo único, cuidando cada detalle con materiales de alta calidad</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="emoji">🖼️</div>
+                    <h4>Entrega Premium</h4>
+                    <p>Tu obra viene con marco de alta calidad, paspartú y empaquetado especial</p>
+                </div>
+            </div>
+
+            <div class="info-note">
+                <strong>⏱️ Tiempos de entrega:</strong><br>
+                Prints personalizados: 2-5 días hábiles<br>
+                Acuarelas personalizadas: 7-15 días hábiles<br>
+                (Trabajo tiempo completo como ingeniera, pero tu obra recibirá toda mi dedicación y amor 💕)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Solicita tu Obra Mágica</h2>
+            <p class="section-subtitle">Completa el formulario y te contactaré por WhatsApp para coordinar todos los detalles</p>
+            
+            <div class="form-section">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Tu Nombre *</label>
+                        <input type="text" id="name" name="name" required placeholder="Ej: María García">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">WhatsApp / Teléfono *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Ej: 987654321">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (opcional)</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productType">¿Qué te interesa? *</label>
+                        <select id="productType" name="productType" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="print">Print Personalizado</option>
+                            <option value="acuarela">Acuarela Personalizada</option>
+                        </select>
+                    </div>
+
+                    <div id="printFields" class="conditional-field">
+                        <div class="form-group">
+                            <label for="quantity">¿Cuántos cuadros? *</label>
+                            <select id="quantity" name="quantity">
+                                <option value="">Selecciona cantidad</option>
+                                <option value="1">1 cuadro (Unitario)</option>
+                                <option value="2">2 cuadros (Pack x2)</option>
+                                <option value="3">3 cuadros (Pack x3)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pack">¿Qué pack te gusta?</label>
+                            <select id="pack" name="pack">
+                                <option value="">Selecciona un pack</option>
+                                <option value="explorador">Explorador de Estrellas</option>
+                                <option value="arcoiris">Magia en el Arcoíris</option>
+                                <option value="nubes">Sueños entre Nubes</option>
+                                <option value="cielos">Cielos de Colores (5 para escoger)</option>
+                                <option value="solluna">Sol & Luna</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="printSize">Tamaño *</label>
+                            <select id="printSize" name="printSize">
+                                <option value="">Selecciona tamaño</option>
+                                <option value="A4">A4 (20x30cm)</option>
+                                <option value="A3">A3 (30x40cm)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="printFrame">Tipo de Marco *</label>
+                            <select id="printFrame" name="printFrame">
+                                <option value="">Selecciona marco</option>
+                                <option value="blanco">Marco Blanco</option>
+                                <option value="madera">Marco Madera Natural</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="personalization">Nombre(s) para personalizar</label>
+                            <input type="text" id="personalization" name="personalization" placeholder="Ej: Sofía">
+                            <small>Incluye 1 nombre gratis. Nombres adicionales tienen costo extra</small>
+                        </div>
+                    </div>
+
+                    <div id="acuarelaFields" class="conditional-field">
+                        <div class="form-group">
+                            <label for="acuarelaSize">Tamaño *</label>
+                            <select id="acuarelaSize" name="acuarelaSize">
+                                <option value="">Selecciona tamaño</option>
+                                <option value="A5">A5 (26x32cm con marco) - S/175</option>
+                                <option value="A4">A4 (32x41cm con marco) - S/255</option>
+                                <option value="A3">A3 (41x52cm con marco) - S/365</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acuarelaDetails">Cuéntame tu idea *</label>
+                            <textarea id="acuarelaDetails" name="acuarelaDetails" placeholder="Ej: Es para el cuarto de mi bebé, le encantan las mariposas y los colores suaves. Me gustaría algo con tu estilo de Astral..."></textarea>
+                            <small>Máximo 2 personajes incluidos. Otras cantidades consultar por DM</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Comentarios adicionales</label>
+                        <textarea id="comments" name="comments" placeholder="Cualquier otra información que quieras compartir..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">✨ Enviar Solicitud por WhatsApp</button>
+
+                    <div class="info-note">
+                        <strong>📍 Entregas en Lima</strong><br>
+                        Los precios no incluyen costo de envío. Se cotiza según distrito.<br>
+                        Consulta por envíos a provincia
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="images/logo-mimi.png" alt="Mimi Logo" class="footer-logo">
+        <p><strong>Diviart</strong> by Diana Victorero</p>
+        <p>Ingeniera de día, artista de corazón 💫</p>
+        <div class="social-links">
+            <a href="https://instagram.com/diviart.pe" target="_blank">📷 Instagram</a>
+            <a href="https://linktr.ee/diviart.pe" target="_blank">🔗 Linktree</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 12px; color: #888;">© 2024 Diviart - Todos los derechos reservados</p>
+    </div>
+
+    <script>
+        // Mostrar/ocultar campos según tipo de producto
+        const productType = document.getElementById('productType');
+        const printFields = document.getElementById('printFields');
+        const acuarelaFields = document.getElementById('acuarelaFields');
+
+        productType.addEventListener('change', function() {
+            if (this.value === 'print') {
+                printFields.style.display = 'block';
+                acuarelaFields.style.display = 'none';
+            } else if (this.value === 'acuarela') {
+                printFields.style.display = 'none';
+                acuarelaFields.style.display = 'block';
+            } else {
+                printFields.style.display = 'none';
+                acuarelaFields.style.display = 'none';
+            }
+        });
+
+        // Enviar formulario por WhatsApp
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                productType: document.getElementById('productType').value,
+                comments: document.getElementById('comments').value
+            };
+
+            let message = `✨ *NUEVA SOLICITUD DIVIART* ✨%0A%0A`;
+            message += `👤 *Nombre:* ${formData.name}%0A`;
+            message += `📱 *Teléfono:* ${formData.phone}%0A`;
+            if (formData.email) {
+                message += `📧 *Email:* ${formData.email}%0A`;
+            }
+            message += `%0A`;
+
+            if (formData.productType === 'print') {
+                const quantity = document.getElementById('quantity').value;
+                const pack = document.getElementById('pack').value;
+                const size = document.getElementById('printSize').value;
+                const frame = document.getElementById('printFrame').value;
+                const personalization = document.getElementById('personalization').value;
+
+                message += `🖼️ *PRINT PERSONALIZADO*%0A`;
+                if (quantity) {
+                    const quantityText = quantity === '1' ? 'Unitario' : quantity === '2' ? 'Pack x2' : 'Pack x3';
+                    message += `📦 Cantidad: ${quantityText}%0A`;
+                }
+                if (pack) message += `🎨 Pack: ${document.querySelector(\`#pack option[value="${pack}"]\`).text}%0A`;
+                if (size) message += `📏 Tamaño: ${size}%0A`;
+                if (frame) message += `🖼️ Marco: ${document.querySelector(\`#printFrame option[value="${frame}"]\`).text}%0A`;
+                if (personalization) message += `✍️ Nombre(s): ${personalization}%0A`;
+            } else if (formData.productType === 'acuarela') {
+                const acuarelaSize = document.getElementById('acuarelaSize').value;
+                const acuarelaDetails = document.getElementById('acuarelaDetails').value;
+
+                message += `🎨 *ACUARELA PERSONALIZADA*%0A`;
+                if (acuarelaSize) message += `📏 Tamaño: ${acuarelaSize}%0A`;
+                message += `💭 Idea: ${acuarelaDetails}%0A`;
+            }
+
+            if (formData.comments) {
+                message += `%0A📝 *Comentarios:* ${formData.comments}%0A`;
+            }
+
+            message += `%0A----%0A¡Gracias por tu interés en Diviart! 💫`;
+
+            // ⚠️ DIANA: Cambia este número por tu WhatsApp Business
+            // Formato: 51 (código Perú) + tu número sin espacios ni guiones
+            // Ejemplo: Si tu número es 998 765 432, pon: '51998765432'
+            const whatsappNumber = '51987654321'; // ⬅️ CAMBIAR AQUÍ MAÑANA
+            
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+</html>
