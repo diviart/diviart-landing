@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diviart - Arte que transforma espacios</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    
     <style>
         * {
             margin: 0;
@@ -1005,7 +1007,14 @@
         <p style="margin-top: 20px; font-size: 12px; color: #888;">© 2024 Diviart - Todos los derechos reservados</p>
     </div>
 
-    <script>
+    <!-- 💬 Botón flotante de WhatsApp -->
+    <a href="https://wa.me/51997895829" target="_blank" 
+       style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;
+              padding:14px 18px;border-radius:50%;font-size:26px;text-decoration:none;
+              box-shadow:0 3px 10px rgba(0,0,0,0.2);z-index:1000;"
+       title="Chatea con nosotros en WhatsApp">💬</a>
+    
+ <script>
         // Mostrar/ocultar campos según tipo de producto
         const productType = document.getElementById('productType');
         const printFields = document.getElementById('printFields');
@@ -1039,9 +1048,7 @@
             let message = `✨ *NUEVA SOLICITUD DIVIART* ✨%0A%0A`;
             message += `👤 *Nombre:* ${formData.name}%0A`;
             message += `📱 *Teléfono:* ${formData.phone}%0A`;
-            if (formData.email) {
-                message += `📧 *Email:* ${formData.email}%0A`;
-            }
+            if (formData.email) message += `📧 *Email:* ${formData.email}%0A`;
             message += `%0A`;
 
             if (formData.productType === 'print') {
@@ -1069,17 +1076,11 @@
                 message += `💭 Idea: ${acuarelaDetails}%0A`;
             }
 
-            if (formData.comments) {
-                message += `%0A📝 *Comentarios:* ${formData.comments}%0A`;
-            }
-
+            if (formData.comments) message += `%0A📝 *Comentarios:* ${formData.comments}%0A`;
             message += `%0A----%0A¡Gracias por tu interés en Diviart! 💫`;
 
-            // ⚠️ DIANA: Cambia este número por tu WhatsApp Business
-            // Formato: 51 (código Perú) + tu número sin espacios ni guiones
-            // Ejemplo: Si tu número es 998 765 432, pon: '51998765432'
-            const whatsappNumber = '51997895829'; // ⬅️ CAMBIAR AQUÍ MAÑANA
-            
+            // 💚 TU NÚMERO AQUÍ (formato internacional)
+            const whatsappNumber = '519XXXXXXXX'; // <-- reemplaza por tu número real
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
             window.open(whatsappURL, '_blank');
         });
