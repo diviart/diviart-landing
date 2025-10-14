@@ -21,10 +21,14 @@
         .header {
             background: linear-gradient(135deg, rgba(187, 223, 235, 0.9) 0%, rgba(166, 214, 200, 0.9) 100%), 
                         url('images/banner-fondo.jpg') center/cover;
-            padding: 40px 20px 60px;
+            padding: 30px 20px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         .header::before {
@@ -154,6 +158,25 @@
             transform: translateY(-8px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             border-color: #BBDFEB;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #BBDFEB, #A6D6C8);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(187, 223, 235, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(187, 223, 235, 0.5);
         }
 
         .product-icon {
@@ -685,6 +708,10 @@
                         💳 Pago: 100% al inicio<br>
                         📦 Envío se cotiza según distrito
                     </div>
+
+                    <div style="text-align: center;">
+                        <a href="#packs-section" class="cta-button">Ver Colección "Mundos de Ensueño"</a>
+                    </div>
                 </div>
 
                 <div class="product-card">
@@ -729,6 +756,10 @@
                         💳 Pago: 60% inicio + 40% antes de entrega<br>
                         📦 Envío se cotiza según distrito
                     </div>
+
+                    <div style="text-align: center;">
+                        <a href="#acuarelas-section" class="cta-button">Ver Proceso y Ejemplos</a>
+                    </div>
                 </div>
             </div>
 
@@ -743,7 +774,7 @@
         </div>
 
         <div class="section">
-            <h2 class="section-title">Colección "Mundos de Ensueño"</h2>
+            <h2 class="section-title" id="packs-section">Colección "Mundos de Ensueño"</h2>
             <p class="section-subtitle">Cada pack cuenta una historia mágica protagonizada por Astral y Mimi, mis personajes originales</p>
             
             <div class="packs-grid">
@@ -801,7 +832,7 @@
         </div>
 
         <div class="section">
-            <h2 class="section-title">Acuarelas Personalizadas</h2>
+            <h2 class="section-title" id="acuarelas-section">Acuarelas Personalizadas</h2>
             <p class="section-subtitle">Obras únicas creadas especialmente para ti. Cuéntame tu idea y juntos creamos algo mágico</p>
             
             <div class="acuarelas-showcase">
