@@ -1018,77 +1018,85 @@
       <path d="M17.17 14.77c-.28-.14-1.63-.8-1.88-.89-.25-.09-.43-.14-.61.14-.18.28-.7.89-.86 1.07-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.62-1.54-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.32.43-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.28-.96.93-.96 2.26 0 1.32.98 2.6 1.12 2.78.14.18 1.92 2.93 4.67 4.11.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.63-.67 1.86-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.2-.52-.34z"/>
     </svg>
 </a>
-    
- <script>
-        // Mostrar/ocultar campos según tipo de producto
-        const productType = document.getElementById('productType');
-        const printFields = document.getElementById('printFields');
-        const acuarelaFields = document.getElementById('acuarelaFields');
 
-        productType.addEventListener('change', function() {
-            if (this.value === 'print') {
-                printFields.style.display = 'block';
-                acuarelaFields.style.display = 'none';
-            } else if (this.value === 'acuarela') {
-                printFields.style.display = 'none';
-                acuarelaFields.style.display = 'block';
-            } else {
-                printFields.style.display = 'none';
-                acuarelaFields.style.display = 'none';
+     <!-- Formulario-->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    const form = document.getElementById('orderForm');
+    const productType = document.getElementById('productType');
+    const printFields = document.getElementById('printFields');
+    const acuarelaFields = document.getElementById('acuarelaFields');
+
+    // Mostrar/ocultar campos según tipo de producto
+    productType.addEventListener('change', function() {
+        if (this.value === 'print') {
+            printFields.style.display = 'block';
+            acuarelaFields.style.display = 'none';
+        } else if (this.value === 'acuarela') {
+            printFields.style.display = 'none';
+            acuarelaFields.style.display = 'block';
+        } else {
+            printFields.style.display = 'none';
+            acuarelaFields.style.display = 'none';
+        }
+    });
+
+    // Evitar envío y redirección
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            productType: document.getElementById('productType').value,
+            comments: document.getElementById('comments').value
+        };
+
+        let message = `✨ *NUEVA SOLICITUD DIVIART* ✨%0A%0A`;
+        message += `👤 *Nombre:* ${formData.name}%0A`;
+        message += `📱 *Teléfono:* ${formData.phone}%0A`;
+        if (formData.email) message += `📧 *Email:* ${formData.email}%0A`;
+        message += `%0A`;
+
+        if (formData.productType === 'print') {
+            const quantity = document.getElementById('quantity').value;
+            const pack = document.getElementById('pack').value;
+            const size = document.getElementById('printSize').value;
+            const frame = document.getElementById('printFrame').value;
+            const personalization = document.getElementById('personalization').value;
+
+            message += `🖼️ *PRINT PERSONALIZADO*%0A`;
+            if (quantity) {
+                const quantityText = quantity === '1' ? 'Unitario' : quantity === '2' ? 'Pack x2' : 'Pack x3';
+                message += `📦 Cantidad: ${quantityText}%0A`;
             }
-        });
+            if (pack) message += `🎨 Pack: ${document.querySelector(\`#pack option[value="${pack}"]\`).text}%0A`;
+            if (size) message += `📏 Tamaño: ${size}%0A`;
+            if (frame) message += `🖼️ Marco: ${document.querySelector(\`#printFrame option[value="${frame}"]\`).text}%0A`;
+            if (personalization) message += `✍️ Nombre(s): ${personalization}%0A`;
+        } else if (formData.productType === 'acuarela') {
+            const acuarelaSize = document.getElementById('acuarelaSize').value;
+            const acuarelaDetails = document.getElementById('acuarelaDetails').value;
 
-        // Enviar formulario por WhatsApp
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            message += `🎨 *ACUARELA PERSONALIZADA*%0A`;
+            if (acuarelaSize) message += `📏 Tamaño: ${acuarelaSize}%0A`;
+            if (acuarelaDetails) message += `💭 Idea: ${acuarelaDetails}%0A`;
+        }
 
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                productType: document.getElementById('productType').value,
-                comments: document.getElementById('comments').value
-            };
+        if (formData.comments) message += `%0A📝 *Comentarios:* ${formData.comments}%0A`;
+        message += `%0A----%0A¡Gracias por tu interés en Diviart! 💫`;
 
-            let message = `✨ *NUEVA SOLICITUD DIVIART* ✨%0A%0A`;
-            message += `👤 *Nombre:* ${formData.name}%0A`;
-            message += `📱 *Teléfono:* ${formData.phone}%0A`;
-            if (formData.email) message += `📧 *Email:* ${formData.email}%0A`;
-            message += `%0A`;
+        // 💚 TU NÚMERO AQUÍ
+        const whatsappNumber = '519XXXXXXXX'; // <-- reemplaza por tu número real
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-            if (formData.productType === 'print') {
-                const quantity = document.getElementById('quantity').value;
-                const pack = document.getElementById('pack').value;
-                const size = document.getElementById('printSize').value;
-                const frame = document.getElementById('printFrame').value;
-                const personalization = document.getElementById('personalization').value;
-
-                message += `🖼️ *PRINT PERSONALIZADO*%0A`;
-                if (quantity) {
-                    const quantityText = quantity === '1' ? 'Unitario' : quantity === '2' ? 'Pack x2' : 'Pack x3';
-                    message += `📦 Cantidad: ${quantityText}%0A`;
-                }
-                if (pack) message += `🎨 Pack: ${document.querySelector(\`#pack option[value="${pack}"]\`).text}%0A`;
-                if (size) message += `📏 Tamaño: ${size}%0A`;
-                if (frame) message += `🖼️ Marco: ${document.querySelector(\`#printFrame option[value="${frame}"]\`).text}%0A`;
-                if (personalization) message += `✍️ Nombre(s): ${personalization}%0A`;
-            } else if (formData.productType === 'acuarela') {
-                const acuarelaSize = document.getElementById('acuarelaSize').value;
-                const acuarelaDetails = document.getElementById('acuarelaDetails').value;
-
-                message += `🎨 *ACUARELA PERSONALIZADA*%0A`;
-                if (acuarelaSize) message += `📏 Tamaño: ${acuarelaSize}%0A`;
-                message += `💭 Idea: ${acuarelaDetails}%0A`;
-            }
-
-            if (formData.comments) message += `%0A📝 *Comentarios:* ${formData.comments}%0A`;
-            message += `%0A----%0A¡Gracias por tu interés en Diviart! 💫`;
-
-            // 💚 TU NÚMERO AQUÍ (formato internacional)
-            const whatsappNumber = '51997895829'; // <-- reemplaza por tu número real
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, '_blank');
-        });
-    </script>
+        // Abrir WhatsApp sin recargar página
+        window.open(whatsappURL, '_blank');
+        return false;
+    });
+});
+</script>
 </body>
 </html>
