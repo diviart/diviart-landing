@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diviart - Arte que transforma espacios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F9F6EE;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #BBDFEB 0%, #A6D6C8 100%);
+            padding: 40px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '✨';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            top: -20px;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '🌙';
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.1;
+            bottom: -10px;
+            right: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .logo-img {
+            max-width: 280px;
+            height: auto;
+            margin: 0 auto 20px;
+            filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.1));
+        }
+
+        .tagline {
+            font-size: 22px;
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #fff;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #FFE283, #FACEC6);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .hero-ambientes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .hero-ambientes img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: #f0f0f0;
+        }
+
+        .hero-ambientes img:hover {
+            transform: scale(1.03);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: #BBDFEB;
+        }
+
+        .product-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .product-description {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .price-old {
+            font-size: 16px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .price-new {
+            font-size: 24px;
+            color: #A6D6C8;
+            font-weight: bold;
+        }
+
+        .price-label {
+            font-size: 13px;
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .promo-badge {
+            display: inline-block;
+            background: #FFE283;
+            color: #333;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .specs-list {
+            background: #F9F6EE;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border-left: 4px solid #A6D6C8;
+            text-align: left;
+        }
+
+        .specs-list h4 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .specs-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .specs-list li {
+            font-size: 13px;
+            color: #666;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .specs-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #A6D6C8;
+            font-weight: bold;
+        }
+
+        .payment-info {
+            background: #FFE283;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .pack-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pack-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .pack-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .pack-content {
+            padding: 25px;
+        }
+
+        .pack-title {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .pack-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .pack-info {
+            background: #F9F6EE;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #666;
+            border-left: 4px solid #A6D6C8;
+        }
+
+        .acuarelas-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .acuarela-example {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .acuarela-example:hover {
+            transform: scale(1.03);
+        }
+
+        .acuarela-example img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            background: #f0f0f0;
+        }
+
+        .acuarela-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(166, 214, 200, 0.95);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .step-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #BBDFEB, #A6D6C8);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .step-item .emoji {
+            font-size: 40px;
+            margin: 15px 0;
+        }
+
+        .step-item h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .step-item p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .form-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #BBDFEB;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #A6D6C8;
+            box-shadow: 0 0 0 3px rgba(166, 214, 200, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group small {
+            font-size: 12px;
+            color: #999;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .conditional-field {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #BBDFEB, #A6D6C8);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(187, 223, 235, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(187, 223, 235, 0.6);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-note {
+            background: #FFE283;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .info-box {
+            background: #F9F6EE;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #A6D6C8;
+        }
+
+        .info-box h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .info-box p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #FACEC6, #FFE283);
+            color: #666;
+            margin-top: 80px;
+        }
+
+        .footer-logo {
+            max-width: 120px;
+            height: auto;
+            margin: 0 auto 20px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .footer p {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        .social-links {
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px 50px;
+            }
+
+            .logo-img {
+                max-width: 200px;
+            }
+
+            .tagline {
+                font-size: 18px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .products-grid,
+            .packs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-ambientes {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-ambientes img {
+                height: 250px;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/logo-astral-diviart.png" alt="Diviart Logo" class="logo-img">
+        <div class="tagline">Creo arte único que transforma espacios</div>
+        <div class="subtitle">Prints personalizados & Acuarelas a pedido<br>Mundos de Ensueño • Amor • Empoderamiento</div>
+    </div>
+
+    <div class="container">
+        <div class="section" style="margin-top: 40px;">
+            <div class="hero-ambientes">
+                <img src="images/ambiente-cuarto-1.jpg">
+                <img src="images/ambiente-cuarto-2.jpg">
+                <img src="images/ambiente-cuarto-3.jpg">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">¿Qué estás buscando?</h2>
+            <p class="section-subtitle">Elige entre nuestras ilustraciones originales de la colección "Mundos de Ensueño" o una obra única creada especialmente para ti</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🖼️</div>
+                    <h3 class="product-title">Prints Personalizados</h3>
+                    <p class="product-description">Ilustraciones únicas de la colección "Mundos de Ensueño" con el nombre de tu peque escrito a mano con mi caligrafía</p>
+                    
+                    <p class="price-label">Unitario</p>
+                    <div class="price-row">
+                        <span class="price-old">A4: S/100</span>
+                        <span class="price-new">S/85</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-old">A3: S/150</span>
+                        <span class="price-new">S/125</span>
+                    </div>
+
+                    <p class="price-label" style="margin-top: 20px;">Pack x2</p>
+                    <div class="price-row">
+                        <span class="price-old">A4: S/220</span>
+                        <span class="price-new">S/166</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-old">A3: S/300</span>
+                        <span class="price-new">S/246</span>
+                    </div>
+
+                    <p class="price-label" style="margin-top: 20px;">Pack x3</p>
+                    <div class="price-row">
+                        <span class="price-old">A4: S/330</span>
+                        <span class="price-new">S/240</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-old">A3: S/450</span>
+                        <span class="price-new">S/360</span>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <div class="promo-badge">🎉 Oferta de Lanzamiento</div>
+                    </div>
+
+                    <div class="specs-list">
+                        <h4>✨ Incluye:</h4>
+                        <ul>
+                            <li>Impresión de alta calidad</li>
+                            <li>Papel fotográfico mate 220gr</li>
+                            <li>Marco blanco pintado a mano o madera natural</li>
+                            <li>Sello de agua + firma del artista</li>
+                            <li>1 nombre personalizado</li>
+                            <li>Medidas: A4 (20x30cm) | A3 (30x40cm)</li>
+                            <li>Entrega: 2-5 días hábiles</li>
+                        </ul>
+                    </div>
+
+                    <div class="payment-info">
+                        💳 Pago: 100% al inicio<br>
+                        📦 Envío se cotiza según distrito
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🎨</div>
+                    <h3 class="product-title">Acuarelas Personalizadas</h3>
+                    <p class="product-description">Obra única e irrepetible creada especialmente para ti con mi estilo de ilustración. Un trabajo artístico 100% personalizado</p>
+                    
+                    <div class="price-row">
+                        <span class="price-old">A5: S/195</span>
+                        <span class="price-new">S/175</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-old">A4: S/285</span>
+                        <span class="price-new">S/255</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-old">A3: S/450</span>
+                        <span class="price-new">S/365</span>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <div class="promo-badge">🎉 Oferta de Lanzamiento</div>
+                    </div>
+
+                    <div class="specs-list">
+                        <h4>✨ Características:</h4>
+                        <ul>
+                            <li>Pieza única - Obra original</li>
+                            <li>Acuarelas de alta pigmentación</li>
+                            <li>Papel ARCHES profesional, grano fino</li>
+                            <li>100% fibra de algodón, libre de ácidos, 300gr</li>
+                            <li>Marco blanco pintado a mano + paspartú</li>
+                            <li>Medidas con marco: A5 (26x32cm) | A4 (32x41cm) | A3 (41x52cm)</li>
+                            <li>Sello de agua + firma del artista</li>
+                            <li>Máximo 2 personajes (otras cantidades consultar)</li>
+                            <li>Incluye 1 boceto previo + 1 ronda de cambios</li>
+                            <li>Duración: 7-15 días laborables</li>
+                        </ul>
+                    </div>
+
+                    <div class="payment-info">
+                        💳 Pago: 60% inicio + 40% antes de entrega<br>
+                        📦 Envío se cotiza según distrito
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>✨ ¿Por qué elegir Diviart?</h3>
+                <p><strong>• 100% Original:</strong> Cada diseño es mi propia creación, no encontrarás copias.</p>
+                <p><strong>• Personalización Real:</strong> Los nombres están escritos a mano con mi caligrafía, no son fuentes digitales.</p>
+                <p><strong>• Calidad Premium:</strong> Materiales profesionales de alta durabilidad.</p>
+                <p><strong>• Obra Única:</strong> Las acuarelas personalizadas son piezas únicas e irrepetibles, creadas solo para tu familia.</p>
+                <p><strong>• Firmado por el Artista:</strong> Cada obra lleva mi firma y numeración, garantizando autenticidad.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Colección "Mundos de Ensueño"</h2>
+            <p class="section-subtitle">Cada pack cuenta una historia mágica protagonizada por Astral y Mimi, mis personajes originales</p>
+            
+            <div class="packs-grid">
+                <div class="pack-card">
+                    <img src="images/pack-explorador-estrellas.jpg" alt="Explorador de Estrellas" class="pack-image">
+                    <div class="pack-content">
+                        <h3 class="pack-title">🌟 Explorador de Estrellas</h3>
+                        <p class="pack-description">Acompaña a Astral en una aventura por el universo, descubriendo estrellas y planetas llenos de magia</p>
+                        <div class="pack-info">Pack de 3 ilustraciones</div>
+                    </div>
+                </div>
+
+                <div class="pack-card">
+                    <img src="images/pack-magia-arcoiris.jpg" alt="Magia en el Arcoíris" class="pack-image">
+                    <div class="pack-content">
+                        <h3 class="pack-title">🌈 Magia en el Arcoíris</h3>
+                        <p class="pack-description">Mimi te guía a través de colores vibrantes donde cada arcoíris esconde un secreto especial</p>
+                        <div class="pack-info">Pack de 3 ilustraciones</div>
+                    </div>
+                </div>
+
+                <div class="pack-card">
+                    <img src="images/pack-suenos-nubes.jpg" alt="Sueños entre Nubes" class="pack-image">
+                    <div class="pack-content">
+                        <h3 class="pack-title">☁️ Sueños entre Nubes</h3>
+                        <p class="pack-description">Un viaje suave por nubes de algodón donde Astral y Mimi encuentran la paz de los sueños</p>
+                        <div class="pack-info">Pack de 3 ilustraciones</div>
+                    </div>
+                </div>
+
+                <div class="pack-card">
+                    <img src="images/pack-cielos-colores.jpg" alt="Cielos de Colores" class="pack-image">
+                    <div class="pack-content">
+                        <h3 class="pack-title">🌤️ Cielos de Colores</h3>
+                        <p class="pack-description">El sol, la luna, las nubes y el arcoíris cobran vida con caritas tiernas que llenan de alegría cualquier espacio</p>
+                        <div class="pack-info">5 ilustraciones para escoger</div>
+                    </div>
+                </div>
+
+                <div class="pack-card">
+                    <img src="images/pack-sol-luna.jpg" alt="Sol & Luna" class="pack-image">
+                    <div class="pack-content">
+                        <h3 class="pack-title">🌙 Sol & Luna</h3>
+                        <p class="pack-description">La danza eterna entre el día y la noche representada con ternura y calidez</p>
+                        <div class="pack-info">Pack de 2 ilustraciones</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>💫 Conoce a Astral y Mimi</h3>
+                <p><strong>Astral</strong> representa nuestro niño interior y está inspirado en las estrellas y los copos de nieve. Es la inocencia, la magia y los sueños.</p>
+                <p><strong>Mimi</strong> representa esa fuerza de valentía y creatividad que nos impulsa a hacer cosas nuevas. Es el coraje, la aventura y la imaginación.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Acuarelas Personalizadas</h2>
+            <p class="section-subtitle">Obras únicas creadas especialmente para ti. Cuéntame tu idea y juntos creamos algo mágico</p>
+            
+            <div class="acuarelas-showcase">
+                <div class="acuarela-example">
+                    <img src="images/acuarela-ejemplo-1.jpg" alt="Acuarela Ejemplo 1">
+                    <div class="acuarela-badge">Obra Única</div>
+                </div>
+                <div class="acuarela-example">
+                    <img src="images/acuarela-ejemplo-2.jpg" alt="Acuarela Ejemplo 2">
+                    
