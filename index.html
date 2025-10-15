@@ -6,6 +6,24 @@
     <title>Diviart - Arte que transforma espacios</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
     
+    <!-- Meta tags para redes sociales -->
+    <meta property="og:title" content="Diviart - Arte que transforma espacios">
+    <meta property="og:description" content="Prints personalizados y acuarelas únicas para decorar espacios mágicos. Colección Mundos de Ensueño.">
+    <meta property="og:image" content="images/logo-astral-diviart.png">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Arte personalizado para tu hogar. Prints y acuarelas únicas con entrega en Lima. Colección Mundos de Ensueño por Diana Victorero.">
+    
+    <!-- Google Analytics (GRATIS - Descomenta cuando tengas tu ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=TU-ID-AQUI"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'TU-ID-AQUI');
+    </script>
+    -->
+    
     <style>
         * {
             margin: 0;
@@ -20,6 +38,10 @@
             line-height: 1.6;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         .header {
             background: linear-gradient(135deg, rgba(187, 223, 235, 0.9) 0%, rgba(166, 214, 200, 0.9) 100%), 
                         url('images/banner-fondo.jpg') center/cover;
@@ -27,10 +49,6 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         .header::before {
@@ -56,6 +74,12 @@
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         .logo-img {
@@ -435,6 +459,26 @@
             line-height: 1.6;
         }
 
+        .faq-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #A6D6C8;
+        }
+
+        .faq-item h4 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
         .form-section {
             background: white;
             border-radius: 20px;
@@ -474,6 +518,16 @@
             outline: none;
             border-color: #A6D6C8;
             box-shadow: 0 0 0 3px rgba(166, 214, 200, 0.1);
+        }
+
+        .form-group input:invalid:not(:placeholder-shown),
+        .form-group select:invalid:not(:placeholder-shown) {
+            border-color: #ff6b6b;
+        }
+
+        .form-group input:valid:not(:placeholder-shown),
+        .form-group select:valid:not(:placeholder-shown) {
+            border-color: #51cf66;
         }
 
         .form-group textarea {
@@ -589,13 +643,62 @@
             color: #333;
         }
 
+        /* Botón flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Botón volver arriba */
+        .back-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: linear-gradient(135deg, #BBDFEB, #A6D6C8);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+            font-size: 24px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
         @media (max-width: 768px) {
             .header {
-                padding: 30px 20px 50px;
+                padding: 20px 20px 30px;
             }
 
             .logo-img {
-                max-width: 200px;
+                max-width: 180px;
             }
 
             .tagline {
@@ -629,6 +732,21 @@
 
             .process-steps {
                 grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 80px;
+                right: 15px;
+                font-size: 20px;
             }
         }
     </style>
@@ -884,6 +1002,35 @@
         </div>
 
         <div class="section">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <h4>📦 ¿Cuánto demora el envío?</h4>
+                <p>En Lima, las entregas se realizan en 1-2 días después de completada la obra. Para provincia, consultame por WhatsApp y coordinaremos el envío.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>👀 ¿Puedo ver el diseño antes de que lo impriman/pinten?</h4>
+                <p>En acuarelas personalizadas, te envío un boceto previo para tu aprobación (incluye 1 ronda de cambios). En prints, el diseño ya está listo y puedes verlo en las fotos de la colección.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>🚚 ¿Hacen envíos a provincia?</h4>
+                <p>Sí, realizamos envíos a todo el Perú. El costo se cotiza según tu ciudad. Escríbeme por WhatsApp para coordinar.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>💳 ¿Qué métodos de pago aceptan?</h4>
+                <p>Aceptamos transferencias bancarias y Yape/Plin. Para prints es 100% al inicio. Para acuarelas personalizadas es 60% al inicio y 40% antes de la entrega.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>🎨 ¿Puedo pedir un diseño diferente a los packs?</h4>
+                <p>¡Por supuesto! Puedes combinar ilustraciones de diferentes packs o solicitar una acuarela personalizada completamente única para ti.</p>
+            </div>
+        </div>
+
+        <div class="section">
             <h2 class="section-title">Solicita tu Obra Mágica</h2>
             <p class="section-subtitle">Completa el formulario y te contactaré por WhatsApp para coordinar todos los detalles</p>
             
@@ -902,6 +1049,12 @@
                     <div class="form-group">
                         <label for="email">Email (opcional)</label>
                         <input type="email" id="email" name="email" placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="distrito">¿En qué distrito te encuentras?</label>
+                        <input type="text" id="distrito" name="distrito" placeholder="Ej: San Isidro, Miraflores, Surco...">
+                        <small>Esto me ayuda a cotizar el envío más rápido</small>
                     </div>
 
                     <div class="form-group">
@@ -986,7 +1139,7 @@
                         <textarea id="comments" name="comments" placeholder="Cualquier otra información que quieras compartir..."></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">✨ Enviar Solicitud por WhatsApp</button>
+                    <button type="button" class="submit-btn">✨ Enviar Solicitud por WhatsApp</button>
 
                     <div class="info-note">
                         <strong>📍 Entregas en Lima</strong><br>
@@ -1009,92 +1162,94 @@
         <p style="margin-top: 20px; font-size: 12px; color: #888;">© 2024 Diviart - Todos los derechos reservados</p>
     </div>
 
-    <!-- 💬 Botón flotante de WhatsApp -->
-    <a href="https://wa.me/51997895829" target="_blank" title="Chatea por WhatsApp"
-        style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;
-            width:60px;height:60px;border-radius:50%;display:flex;align-items:center;
-            justify-content:center;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.2);
-            z-index:1000;">
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/51997895829?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Diviart%20✨" target="_blank" class="whatsapp-float" title="Chatea por WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white">
             <path d="M20.52 3.48A11.92 11.92 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.59A11.9 11.9 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.2-3.48-8.52zM12 22.05a9.9 9.9 0 01-5.05-1.37l-.36-.21-3.65.94.98-3.55-.23-.37A9.9 9.9 0 012.05 12C2.05 6.51 6.51 2.05 12 2.05S21.95 6.51 21.95 12 17.49 22.05 12 22.05z"/>
             <path d="M17.17 14.77c-.28-.14-1.63-.8-1.88-.89-.25-.09-.43-.14-.61.14-.18.28-.7.89-.86 1.07-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.62-1.54-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.32.43-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.28-.96.93-.96 2.26 0 1.32.98 2.6 1.12 2.78.14.18 1.92 2.93 4.67 4.11.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.63-.67 1.86-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.2-.52-.34z"/>
         </svg>
     </a>
 
-     <!-- Formulario-->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-const form = document.getElementById('orderForm');
-const productType = document.getElementById('productType');
-const printFields = document.getElementById('printFields');
-const acuarelaFields = document.getElementById('acuarelaFields');
+    <!-- Botón volver arriba -->
+    <a href="#" id="backToTop" class="back-to-top">↑</a>
 
+    <script>
+        // Mostrar/ocultar campos del formulario
+        const productType = document.getElementById('productType');
+        const printFields = document.getElementById('printFields');
+        const acuarelaFields = document.getElementById('acuarelaFields');
 
-productType.addEventListener('change', function() {
-printFields.style.display = this.value === 'print' ? 'block' : 'none';
-acuarelaFields.style.display = this.value === 'acuarela' ? 'block' : 'none';
-});
+        productType.addEventListener('change', function() {
+            printFields.style.display = this.value === 'print' ? 'block' : 'none';
+            acuarelaFields.style.display = this.value === 'acuarela' ? 'block' : 'none';
+        });
 
+        // Enviar formulario por WhatsApp
+        document.querySelector('.submit-btn').addEventListener('click', function() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const distrito = document.getElementById('distrito').value.trim();
+            const type = productType.value;
 
-const sendBtn = form.querySelector('.submit-btn');
-sendBtn.type = 'button';
+            if (!name || !phone || !type) {
+                alert('Por favor completa los campos obligatorios (Nombre, WhatsApp y Tipo de producto)');
+                return;
+            }
 
+            let msg = `✨ *NUEVA SOLICITUD DIVIART* ✨\n\n`;
+            msg += `👤 *Nombre:* ${name}\n`;
+            msg += `📱 *Teléfono:* ${phone}\n`;
+            if (email) msg += `📧 *Email:* ${email}\n`;
+            if (distrito) msg += `📍 *Distrito:* ${distrito}\n`;
+            msg += `\n`;
 
-sendBtn.addEventListener('click', function() {
-const name = document.getElementById('name').value.trim();
-const phone = document.getElementById('phone').value.trim();
-const email = document.getElementById('email').value.trim();
-const type = productType.value;
+            if (type === 'print') {
+                const q = document.getElementById('quantity').value;
+                const p = document.getElementById('pack').value;
+                const s = document.getElementById('printSize').value;
+                const f = document.getElementById('printFrame').value;
+                const pers = document.getElementById('personalization').value;
 
+                msg += `🖼️ *PRINT PERSONALIZADO*\n`;
+                if (q) msg += `📦 Cantidad: ${q === '1' ? 'Unitario' : q === '2' ? 'Pack x2' : q === '3' ? 'Pack x3' : 'Más de 3'}\n`;
+                if (p) msg += `🎨 Pack: ${document.querySelector(`#pack option[value="${p}"]`).text}\n`;
+                if (s) msg += `📏 Tamaño: ${s}\n`;
+                if (f) msg += `🖼️ Marco: ${document.querySelector(`#printFrame option[value="${f}"]`).text}\n`;
+                if (pers) msg += `✍️ Nombre(s): ${pers}\n`;
+            }
 
-if (!name || !phone) {
-alert('Por favor completa tu nombre y número de WhatsApp.');
-return;
-}
+            if (type === 'acuarela') {
+                const aSize = document.getElementById('acuarelaSize').value;
+                const aDet = document.getElementById('acuarelaDetails').value;
+                msg += `🎨 *ACUARELA PERSONALIZADA*\n`;
+                if (aSize) msg += `📏 Tamaño: ${aSize}\n`;
+                if (aDet) msg += `💭 Idea: ${aDet}\n`;
+            }
 
+            const comments = document.getElementById('comments').value.trim();
+            if (comments) msg += `\n📝 *Comentarios:* ${comments}\n`;
+            msg += `\n----\n¡Gracias por tu interés en Diviart! 💫`;
 
-let msg = `✨ *NUEVA SOLICITUD DIVIART* ✨\n\n`;
-msg += `👤 *Nombre:* ${name}\n`;
-msg += `📱 *Teléfono:* ${phone}\n`;
-if (email) msg += `📧 *Email:* ${email}\n\n`;
+            const whatsappNumber = '51997895829';
+            const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+            window.open(waURL, '_blank');
+        });
 
+        // Botón volver arriba
+        window.onscroll = function() {
+            const btn = document.getElementById('backToTop');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = 'flex';
+            } else {
+                btn.style.display = 'none';
+            }
+        };
 
-if (type === 'print') {
-const q = document.getElementById('quantity').value;
-const p = document.getElementById('pack').value;
-const s = document.getElementById('printSize').value;
-const f = document.getElementById('printFrame').value;
-const pers = document.getElementById('personalization').value;
-
-
-msg += `🖼️ *PRINT PERSONALIZADO*\n`;
-if (q) msg += `📦 Cantidad: ${q === '1' ? 'Unitario' : q === '2' ? 'Pack x2' : 'Pack x3'}\n`;
-if (p) msg += `🎨 Pack: ${document.querySelector(`#pack option[value=\"${p}\"]`).text}\n`;
-if (s) msg += `📏 Tamaño: ${s}\n`;
-if (f) msg += `🖼️ Marco: ${document.querySelector(`#printFrame option[value=\"${f}\"]`).text}\n`;
-if (pers) msg += `✍️ Nombre(s): ${pers}\n`;
-}
-
-
-if (type === 'acuarela') {
-const aSize = document.getElementById('acuarelaSize').value;
-const aDet = document.getElementById('acuarelaDetails').value;
-msg += `🎨 *ACUARELA PERSONALIZADA*\n`;
-if (aSize) msg += `📏 Tamaño: ${aSize}\n`;
-if (aDet) msg += `💭 Idea: ${aDet}\n`;
-}
-
-
-const comments = document.getElementById('comments').value.trim();
-if (comments) msg += `\n📝 *Comentarios:* ${comments}\n`;
-msg += `\n----\n¡Gracias por tu interés en Diviart! 💫`;
-
-
-const whatsappNumber = '51997895829';
-const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-window.open(waURL, '_blank');
-});
-});
-</script>
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
