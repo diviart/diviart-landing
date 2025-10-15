@@ -739,7 +739,7 @@
                     </div>
 
                     <div class="specs-list">
-                        <h4>✨ Características:</h4>
+                        <h4>✨ Incluye:</h4>
                         <ul>
                             <li>Pieza única - Obra original</li>
                             <li>Acuarelas de alta pigmentación</li>
@@ -966,9 +966,9 @@
                             <label for="acuarelaSize">Tamaño *</label>
                             <select id="acuarelaSize" name="acuarelaSize">
                                 <option value="">Selecciona tamaño</option>
-                                <option value="A5">A5 (26x32cm con marco) - S/175</option>
-                                <option value="A4">A4 (32x41cm con marco) - S/255</option>
-                                <option value="A3">A3 (41x52cm con marco) - S/365</option>
+                                <option value="A5">A5 (26x32cm con marco)</option>
+                                <option value="A4">A4 (32x41cm con marco)</option>
+                                <option value="A3">A3 (41x52cm con marco)</option>
                             </select>
                         </div>
 
@@ -1034,6 +1034,46 @@ acuarelaFields.style.display = this.value === 'acuarela' ? 'block' : 'none';
 });
 
 
+// ✅ Agregar nueva opción "Más de 3" en cantidad
+const quantitySelect = document.getElementById('quantity');
+if (quantitySelect && !quantitySelect.querySelector('option[value="mas3"]')) {
+const opt = document.createElement('option');
+opt.value = 'mas3';
+opt.textContent = 'Más de 3';
+quantitySelect.appendChild(opt);
+}
+
+
+// ✅ Agregar nueva opción "Combinación de Packs"
+const packSelect = document.getElementById('pack');
+if (packSelect && !packSelect.querySelector('option[value="combopacks"]')) {
+const comboOpt = document.createElement('option');
+comboOpt.value = 'combopacks';
+comboOpt.textContent = 'Combinación de Packs';
+packSelect.appendChild(comboOpt);
+}
+
+
+// ✅ Crear caja de texto para "Combinación de Packs"
+const comboBox = document.createElement('textarea');
+comboBox.id = 'comboPackDetails';
+comboBox.placeholder = 'Por favor, coméntanos cuál es la combinación de packs que estarías seleccionando, el tamaño (A4 o A3), los tipos de marco (Blanco o Natural) y si llevará nombre personalizado.';
+comboBox.style.display = 'none';
+comboBox.style.width = '100%';
+comboBox.style.marginTop = '10px';
+document.getElementById('pack').parentNode.appendChild(comboBox);
+
+
+packSelect.addEventListener('change', function() {
+if (this.value === 'combopacks') {
+comboBox.style.display = 'block';
+} else {
+comboBox.style.display = 'none';
+}
+});
+
+
+// ✅ Lógica del botón de envío
 const sendBtn = form.querySelector('.submit-btn');
 sendBtn.type = 'button';
 
@@ -1063,36 +1103,6 @@ const p = document.getElementById('pack').value;
 const s = document.getElementById('printSize').value;
 const f = document.getElementById('printFrame').value;
 const pers = document.getElementById('personalization').value;
-
-
-msg += `🖼️ *PRINT PERSONALIZADO*\n`;
-if (q) msg += `📦 Cantidad: ${q === '1' ? 'Unitario' : q === '2' ? 'Pack x2' : 'Pack x3'}\n`;
-if (p) msg += `🎨 Pack: ${document.querySelector(`#pack option[value=\"${p}\"]`).text}\n`;
-if (s) msg += `📏 Tamaño: ${s}\n`;
-if (f) msg += `🖼️ Marco: ${document.querySelector(`#printFrame option[value=\"${f}\"]`).text}\n`;
-if (pers) msg += `✍️ Nombre(s): ${pers}\n`;
-}
-
-
-if (type === 'acuarela') {
-const aSize = document.getElementById('acuarelaSize').value;
-const aDet = document.getElementById('acuarelaDetails').value;
-msg += `🎨 *ACUARELA PERSONALIZADA*\n`;
-if (aSize) msg += `📏 Tamaño: ${aSize}\n`;
-if (aDet) msg += `💭 Idea: ${aDet}\n`;
-}
-
-
-const comments = document.getElementById('comments').value.trim();
-if (comments) msg += `\n📝 *Comentarios:* ${comments}\n`;
-msg += `\n----\n¡Gracias por tu interés en Diviart! 💫`;
-
-
-const whatsappNumber = '51997895829';
-const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-window.open(waURL, '_blank');
-});
-});
 </script>
 </body>
 </html>
