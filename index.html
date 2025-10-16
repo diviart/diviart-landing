@@ -1197,11 +1197,11 @@
                 return;
             }
 
-            let msg = `✨ *NUEVA SOLICITUD DIVIART* ✨\n\n`;
-            msg += `👤 *Nombre:* ${name}\n`;
-            msg += `📱 *Teléfono:* ${phone}\n`;
-            if (email) msg += `📧 *Email:* ${email}\n`;
-            if (distrito) msg += `📍 *Distrito:* ${distrito}\n`;
+            let msg = `--- NUEVA SOLICITUD DIVIART ---\n\n`;
+            msg += `Nombre: ${name}\n`;
+            msg += `Telefono: ${phone}\n`;
+            if (email) msg += `Email: ${email}\n`;
+            if (distrito) msg += `Distrito: ${distrito}\n`;
             msg += `\n`;
 
             if (type === 'print') {
@@ -1211,25 +1211,25 @@
                 const f = document.getElementById('printFrame').value;
                 const pers = document.getElementById('personalization').value;
 
-                msg += `🖼️ *PRINT PERSONALIZADO*\n`;
-                if (q) msg += `📦 Cantidad: ${q === '1' ? 'Unitario' : q === '2' ? 'Pack x2' : q === '3' ? 'Pack x3' : 'Más de 3'}\n`;
-                if (p) msg += `🎨 Pack: ${document.querySelector(`#pack option[value="${p}"]`).text}\n`;
-                if (s) msg += `📏 Tamaño: ${s}\n`;
-                if (f) msg += `🖼️ Marco: ${document.querySelector(`#printFrame option[value="${f}"]`).text}\n`;
-                if (pers) msg += `✍️ Nombre(s): ${pers}\n`;
+                msg += `>> PRINT PERSONALIZADO\n`;
+                if (q) msg += `- Cantidad: ${q === '1' ? 'Unitario' : q === '2' ? 'Pack x2' : q === '3' ? 'Pack x3' : 'Mas de 3'}\n`;
+                if (p) msg += `- Pack: ${document.querySelector(`#pack option[value="${p}"]`).text}\n`;
+                if (s) msg += `- Tamanio: ${s}\n`;
+                if (f) msg += `- Marco: ${document.querySelector(`#printFrame option[value="${f}"]`).text}\n`;
+                if (pers) msg += `- Nombre(s): ${pers}\n`;
             }
 
             if (type === 'acuarela') {
                 const aSize = document.getElementById('acuarelaSize').value;
                 const aDet = document.getElementById('acuarelaDetails').value;
-                msg += `🎨 *ACUARELA PERSONALIZADA*\n`;
-                if (aSize) msg += `📏 Tamaño: ${aSize}\n`;
-                if (aDet) msg += `💭 Idea: ${aDet}\n`;
+                msg += `>> ACUARELA PERSONALIZADA\n`;
+                if (aSize) msg += `- Tamanio: ${aSize}\n`;
+                if (aDet) msg += `- Idea: ${aDet}\n`;
             }
 
             const comments = document.getElementById('comments').value.trim();
-            if (comments) msg += `\n📝 *Comentarios:* ${comments}\n`;
-            msg += `\n----\n¡Gracias por tu interés en Diviart! 💫`;
+            if (comments) msg += `\nComentarios adicionales:\n${comments}\n`;
+            msg += `\n---\nGracias por tu interes en Diviart!`;
 
             const whatsappNumber = '51992990301';
             const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
