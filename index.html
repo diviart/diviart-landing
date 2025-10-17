@@ -1212,6 +1212,12 @@
         <p style="margin-top: 20px; font-size: 12px; color: #888;">© 2024 Diviart - Todos los derechos reservados</p>
     </div>
 
+    <!-- Lightbox para ver imágenes en grande -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" alt="Vista ampliada">
+    </div>
+
     <!-- Botón flotante WhatsApp -->
     <a href="https://wa.me/51992990301?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Diviart%20✨" target="_blank" class="whatsapp-float" title="Chatea por WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white">
@@ -1303,88 +1309,27 @@
     </script>
 
     <script>
-    // Lightbox mejorado: abre, cierra y restaura scroll
-        (function() {
-          let lastScrollY = 0;
-          const lightbox = document.getElementById('lightbox');
-          const lightboxImg = document.getElementById('lightbox-img');
-          const closeBtn = lightbox ? lightbox.querySelector('.close') : null;
-        
-          // selector de imágenes (ajusta si tus clases cambian)
-          const imagesSelector = '.hero-ambientes img, .pack-image, .acuarela-example img';
-          const images = document.querySelectorAll(imagesSelector);
-        
-          if (!lightbox || !lightboxImg) {
-            console.warn('Lightbox: faltan elementos #lightbox o #lightbox-img en el HTML.');
-            return;
-          }
-        
-          // Abrir lightbox guardando scroll y bloqueando scroll del body
-          function openLightbox(src) {
-            lastScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-            lightboxImg.src = src;
-            lightbox.style.display = 'block';
-            // prevenir scroll detrás del modal
-            document.body.style.overflow = 'hidden';
-            // asegurar foco para accesibilidad
-            lightbox.setAttribute('tabindex', '-1');
-            lightbox.focus();
-          }
-        
-          // Cerrar y restaurar scroll
-          function closeLightbox() {
-            lightbox.style.display = 'none';
-            document.body.style.overflow = '';
-            // restaurar scroll exactamente donde estaba
-            window.scrollTo({ top: lastScrollY, behavior: 'instant' });
-            // limpiar src para liberar memoria (opcional)
-            lightboxImg.src = '';
-          }
-        
-          // Attach click a cada imagen
-          images.forEach(img => {
-            img.style.cursor = 'zoom-in';
-            img.addEventListener('click', function(e) {
-              // usar dataset-src si quieres cargar una versión más grande:
-              const src = img.dataset.large || img.src;
-              openLightbox(src);
+    // --- Lightbox para imágenes ---
+        document.querySelectorAll('.hero-ambientes img, .pack-image, .acuarela-example img')
+          .forEach(img => {
+            img.addEventListener('click', () => {
+              const lightbox = document.getElementById('lightbox');
+              const lightboxImg = document.getElementById('lightbox-img');
+              lightboxImg.src = img.src;
+              lightbox.style.display = 'block';
             });
           });
         
-          // Cerrar con boton X
-          if (closeBtn) {
-            closeBtn.addEventListener('click', function(e) {
-              e.stopPropagation();
-              closeLightbox();
-            });
+        document.querySelector('.lightbox .close').addEventListener('click', () => {
+          document.getElementById('lightbox').style.display = 'none';
+        });
+        
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+          if (e.target.id === 'lightbox') {
+            e.target.style.display = 'none';
           }
-        
-          // Cerrar clic en fondo (pero no cuando se haga click en la imagen misma)
-          lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) {
-              closeLightbox();
-            }
-          });
-        
-          // Cerrar con ESC
-          document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' || e.key === 'Esc') {
-              if (lightbox.style.display === 'block') closeLightbox();
-            }
-          });
-        
-          // Si usas navegadores que no aceptan 'instant', usa fallback:
-          if (!('behavior' in document.documentElement.style)) {
-            // behavior no soportado -> immediate scroll (no animation)
-            window.scrollTo = (top) => { window.scrollTo(0, top); };
-          }
-        })();
+        });
     </script>
     
-    <!-- Lightbox para ver imágenes en grande -->
-    <div id="lightbox" class="lightbox">
-      <span class="close">&times;</span>
-      <img class="lightbox-content" id="lightbox-img" alt="Vista ampliada">
-    </div>
 </body>
 </html>
