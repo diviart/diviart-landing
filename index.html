@@ -694,11 +694,11 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 20px 20px 30px;
+                padding: 15px 20px 20px;
             }
 
             .logo-img {
-                max-width: 180px;
+                max-width: 150px;
             }
 
             .tagline {
@@ -706,7 +706,42 @@
             }
 
             .subtitle {
-                font-size: 14px;
+                font-size: 13px;
+            }
+
+            .header-badge {
+                font-size: 12px;
+                padding: 6px 15px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-mobile.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(249, 246, 238, 0.98);
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-mobile a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 16px;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
             }
 
             .section-title {
@@ -749,44 +784,6 @@
                 font-size: 20px;
             }
         }
-        /* Lightbox */
-        .lightbox {
-          display: none;
-          position: fixed;
-          z-index: 2000;
-          padding-top: 60px;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          overflow: auto;
-          background-color: rgba(0,0,0,0.8);
-          animation: fadeIn 0.3s ease;
-        }
-        
-        .lightbox-content {
-          margin: auto;
-          display: block;
-          max-width: 90%;
-          max-height: 85vh;
-          border-radius: 10px;
-          box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-        }
-        
-        .lightbox .close {
-          position: absolute;
-          top: 25px;
-          right: 45px;
-          color: white;
-          font-size: 40px;
-          font-weight: bold;
-          cursor: pointer;
-          transition: 0.3s;
-        }
-        
-        .lightbox .close:hover {
-          color: #A6D6C8;
-        }
     </style>
 </head>
 <body>
@@ -794,6 +791,34 @@
         <img src="images/logo-astral-diviart.png" alt="Diviart Logo" class="logo-img">
         <div class="tagline">Creo arte único que transforma espacios</div>
         <div class="subtitle">Prints personalizados & Acuarelas a pedido<br>Mundos de Ensueño • Amor • Empoderamiento</div>
+        <div class="header-badge">🎉 Oferta especial de lanzamiento - Solo hasta fin de mes</div>
+    </div>
+
+    <!-- Nav Sticky -->
+    <div class="nav-sticky" id="navSticky">
+        <div class="nav-content">
+            <img src="images/logo-astral-diviart.png" alt="Diviart" class="nav-logo">
+            
+            <div class="nav-links">
+                <a href="#packs-section">Prints</a>
+                <a href="#acuarelas-section">Acuarelas</a>
+                <a href="#" onclick="document.querySelector('.form-section').scrollIntoView({behavior: 'smooth'}); return false;">Pedidos</a>
+                <a href="https://wa.me/51992990301?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Diviart%20✨" target="_blank" class="nav-cta">Contactar</a>
+            </div>
+
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="nav-mobile" id="navMobile">
+            <a href="#packs-section" onclick="toggleMobileMenu()">Prints</a>
+            <a href="#acuarelas-section" onclick="toggleMobileMenu()">Acuarelas</a>
+            <a href="#" onclick="document.querySelector('.form-section').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;">Pedidos</a>
+            <a href="https://wa.me/51992990301?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Diviart%20✨" target="_blank" class="nav-cta">Contactar por WhatsApp</a>
+        </div>
     </div>
 
     <div class="container">
@@ -846,7 +871,7 @@
                     </div>
 
                     <div style="text-align: center;">
-                        <div class="promo-badge">🎉 Oferta especial por tiempo limitado</div>
+                        <div class="promo-badge">🎉 Oferta de Lanzamiento</div>
                     </div>
 
                     <div class="specs-list">
@@ -854,7 +879,7 @@
                         <ul>
                             <li>Impresión de alta calidad</li>
                             <li>Papel fotográfico mate 220gr</li>
-                            <li>Marco blanco o madera natural</li>
+                            <li>Marco blanco pintado a mano o madera natural</li>
                             <li>Sello de agua + firma del artista</li>
                             <li>1 nombre personalizado</li>
                             <li>Medidas: A4 (20x30cm) | A3 (30x40cm)</li>
@@ -896,18 +921,18 @@
                     </div>
 
                     <div style="text-align: center;">
-                        <div class="promo-badge">🎉 Oferta especial por tiempo limitado</div>
+                        <div class="promo-badge">🎉 Oferta de Lanzamiento</div>
                     </div>
 
                     <div class="specs-list">
-                        <h4>✨ Incluye:</h4>
+                        <h4>✨ Características Premium:</h4>
                         <ul>
                             <li>Pieza única - Obra original firmada</li>
                             <li>Colores vibrantes que duran por generaciones (Acuarelas profesionales de alta pigmentación)</li>
                             <li>Papel de museo que NO se amarilla con el tiempo (100% algodón, libre de ácidos)</li>
                             <li>Grosor premium anti-deterioro - 300gr (3x más grueso que papel común)</li>
                             <li>Papel ARCHES profesional - El estándar de galerías de arte</li>
-                            <li>Marco blanco pintado a mano + paspartú (borde interior)</li>
+                            <li>Marco blanco pintado a mano + paspartú de conservación</li>
                             <li>Medidas con marco: A5 (26x32cm) | A4 (32x41cm) | A3 (41x52cm)</li>
                             <li>Sello de agua + firma del artista</li>
                             <li>Máximo 2 personajes (otras cantidades consultar)</li>
@@ -1212,12 +1237,6 @@
         <p style="margin-top: 20px; font-size: 12px; color: #888;">© 2024 Diviart - Todos los derechos reservados</p>
     </div>
 
-    <!-- Lightbox para ver imágenes en grande -->
-    <div id="lightbox" class="lightbox">
-      <span class="close">&times;</span>
-      <img class="lightbox-content" id="lightbox-img" alt="Vista ampliada">
-    </div>
-
     <!-- Botón flotante WhatsApp -->
     <a href="https://wa.me/51992990301?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Diviart%20✨" target="_blank" class="whatsapp-float" title="Chatea por WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white">
@@ -1306,30 +1325,26 @@
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    </script>
 
-    <script>
-    // --- Lightbox para imágenes ---
-        document.querySelectorAll('.hero-ambientes img, .pack-image, .acuarela-example img')
-          .forEach(img => {
-            img.addEventListener('click', () => {
-              const lightbox = document.getElementById('lightbox');
-              const lightboxImg = document.getElementById('lightbox-img');
-              lightboxImg.src = img.src;
-              lightbox.style.display = 'block';
-            });
-          });
-        
-        document.querySelector('.lightbox .close').addEventListener('click', () => {
-          document.getElementById('lightbox').style.display = 'none';
+        // Nav sticky scroll effect
+        const navSticky = document.getElementById('navSticky');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navSticky.classList.add('scrolled');
+            } else {
+                navSticky.classList.remove('scrolled');
+            }
         });
-        
-        document.getElementById('lightbox').addEventListener('click', (e) => {
-          if (e.target.id === 'lightbox') {
-            e.target.style.display = 'none';
-          }
-        });
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const navMobile = document.getElementById('navMobile');
+            navMobile.classList.toggle('active');
+        }
     </script>
-    
 </body>
 </html>
