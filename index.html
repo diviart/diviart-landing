@@ -694,11 +694,11 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 15px 20px 20px;
+                padding: 20px 20px 30px;
             }
 
             .logo-img {
-                max-width: 150px;
+                max-width: 180px;
             }
 
             .tagline {
@@ -706,42 +706,7 @@
             }
 
             .subtitle {
-                font-size: 13px;
-            }
-
-            .header-badge {
-                font-size: 12px;
-                padding: 6px 15px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            .nav-mobile.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(249, 246, 238, 0.98);
-                padding: 20px;
-                gap: 15px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            }
-
-            .nav-mobile a {
-                color: #333;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                padding: 10px 0;
-                border-bottom: 1px solid #eee;
+                font-size: 14px;
             }
 
             .section-title {
@@ -791,34 +756,6 @@
         <img src="images/logo-astral-diviart.png" alt="Diviart Logo" class="logo-img">
         <div class="tagline">Creo arte único que transforma espacios</div>
         <div class="subtitle">Prints personalizados & Acuarelas a pedido<br>Mundos de Ensueño • Amor • Empoderamiento</div>
-        <div class="header-badge">🎉 Oferta especial de lanzamiento - Solo hasta fin de mes</div>
-    </div>
-
-    <!-- Nav Sticky -->
-    <div class="nav-sticky" id="navSticky">
-        <div class="nav-content">
-            <img src="images/logo-astral-diviart.png" alt="Diviart" class="nav-logo">
-            
-            <div class="nav-links">
-                <a href="#packs-section">Prints</a>
-                <a href="#acuarelas-section">Acuarelas</a>
-                <a href="#" onclick="document.querySelector('.form-section').scrollIntoView({behavior: 'smooth'}); return false;">Pedidos</a>
-                <a href="https://wa.me/51992990301?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Diviart%20✨" target="_blank" class="nav-cta">Contactar</a>
-            </div>
-
-            <div class="nav-toggle" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="nav-mobile" id="navMobile">
-            <a href="#packs-section" onclick="toggleMobileMenu()">Prints</a>
-            <a href="#acuarelas-section" onclick="toggleMobileMenu()">Acuarelas</a>
-            <a href="#" onclick="document.querySelector('.form-section').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); return false;">Pedidos</a>
-            <a href="https://wa.me/51992990301?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Diviart%20✨" target="_blank" class="nav-cta">Contactar por WhatsApp</a>
-        </div>
     </div>
 
     <div class="container">
@@ -1325,26 +1262,6 @@
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        // Nav sticky scroll effect
-        const navSticky = document.getElementById('navSticky');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                navSticky.classList.add('scrolled');
-            } else {
-                navSticky.classList.remove('scrolled');
-            }
-        });
-
-        // Toggle mobile menu
-        function toggleMobileMenu() {
-            const navMobile = document.getElementById('navMobile');
-            navMobile.classList.toggle('active');
-        }
     </script>
 </body>
 </html>
