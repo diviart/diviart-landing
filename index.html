@@ -857,34 +857,26 @@
         }
 
         /* Menu de navegación */
-         .main-nav {
+        .main-nav {
           display: flex;
           justify-content: center;
           gap: 32px;
-          background: linear-gradient(to bottom, #D1E9E5, #A6D6C8);
+          background: linear-gradient(to bottom, #E7F3F0, #CFE7E0);
           padding: 14px 0;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-          position: relative;
-          z-index: 100;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
+        
         .main-nav a {
           color: #3b3b3b;
           font-weight: 500;
           text-decoration: none;
-          transition: all 0.3s ease;
+          transition: color 0.3s ease;
         }
+        
         .main-nav a:hover {
-          color: #2a7260;
-          transform: translateY(-1px);
+          color: #7CB9A6;
         }
-        @media (max-width: 700px) {
-          .main-nav {
-            flex-wrap: wrap;
-            gap: 18px;
-            padding: 10px;
-            font-size: 14px;
-          }
-        }
+
 
     </style>
 </head>
