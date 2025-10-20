@@ -803,6 +803,57 @@
           scroll-padding-top: 40px; /* ajusta según la altura de tu header */
           scroll-behavior: smooth;
         }
+
+        /* FAQ con acordeón */
+        .faq-item {
+          background: white;
+          border-radius: 15px;
+          margin-bottom: 15px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+          border-left: 4px solid #A6D6C8;
+          overflow: hidden;
+          transition: all 0.3s ease;
+        }
+        
+        .faq-question {
+          background: #fff;
+          color: #333;
+          cursor: pointer;
+          padding: 20px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 16px;
+        }
+        
+        .faq-question:hover {
+          background: #F9F6EE;
+        }
+        
+        .faq-answer {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease;
+          padding: 0 20px;
+          color: #666;
+          line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-answer {
+          max-height: 500px; /* ajusta según el contenido */
+          padding-bottom: 20px;
+        }
+        
+        .faq-icon {
+          font-size: 20px;
+          color: #A6D6C8;
+          transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+          transform: rotate(45deg);
+        }
     </style>
 </head>
 <body>
@@ -1070,43 +1121,56 @@
         </div>
 
         <div class="section fade-in">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
-
-            <div class="faq-item">
-                <h4>✨ ¿Cómo funciona el proceso de creación y entrega?</h4>
-                <p>Cada ilustración de Diviart se prepara con mucho cariño 💕.  
-                Una vez confirmado tu pedido, comienza el proceso de impresión o pintura:  <br>
-                    - Los <strong>prints personalizados</strong> se preparan en un plazo de <strong>2 a 5 días hábiles</strong>.  <br>
-                    - Las <strong>acuarelas originales</strong>, al ser pintadas a mano, pueden tomar entre <strong>7 y 15 días hábiles</strong> según la complejidad. <br> 
-                Luego, tu pedido es cuidadosamente empacado y enviado por delivery o recojo en Lima 🌷.</p>
+          <h2 class="section-title">Preguntas Frecuentes</h2>
+        
+          <div class="faq-item">
+            <div class="faq-question">✨ ¿Cómo funciona el proceso de creación y entrega? <span class="faq-icon">＋</span></div>
+            <div class="faq-answer">
+              <p>Cada ilustración de Diviart se prepara con mucho cariño 💕.<br><br>
+              Una vez confirmado tu pedido, comienza el proceso de impresión o pintura:<br>
+              - Los <strong>prints personalizados</strong> se preparan en un plazo de <strong>2 a 5 días hábiles</strong>.<br>
+              - Las <strong>acuarelas originales</strong> pueden tomar entre <strong>7 y 15 días hábiles</strong>.<br><br>
+              Luego, tu pedido es cuidadosamente empacado y enviado por delivery o recojo en Lima 🌷.</p>
             </div>
-            
-            <div class="faq-item">
-                <h4>📦 ¿Cuánto demora el envío?</h4>
-                    <p>El envío dentro de Lima demora entre <strong>1 y 3 días hábiles</strong> luego de finalizar tu pedido.  
-                    Para otras ciudades del Perú, puede tomar entre <strong>3 y 7 días hábiles</strong>, dependiendo del destino.</p>
+          </div>
+        
+          <div class="faq-item">
+            <div class="faq-question">📦 ¿Cuánto demora el envío? <span class="faq-icon">＋</span></div>
+            <div class="faq-answer">
+              <p>El envío dentro de Lima demora entre <strong>1 y 3 días hábiles</strong> luego de finalizar tu pedido.<br>
+              Para otras ciudades del Perú, puede tomar entre <strong>3 y 7 días hábiles</strong>.</p>
             </div>
-            
-            <div class="faq-item">
-                <h4>👀 ¿Puedo ver el diseño antes de que lo impriman/pinten?</h4>
-                <p>En acuarelas personalizadas, te envío un boceto previo para tu aprobación (incluye 1 ronda de cambios). En prints, el diseño ya está listo y puedes verlo en las fotos de la colección.</p>
+          </div>
+        
+          <div class="faq-item">
+            <div class="faq-question">👀 ¿Puedo ver el diseño antes de que lo impriman/pinten? <span class="faq-icon">＋</span></div>
+            <div class="faq-answer">
+              <p>En acuarelas personalizadas te envío un boceto previo para tu aprobación (incluye 1 ronda de cambios). En prints, el diseño ya está listo y puedes verlo en las fotos de la colección.</p>
             </div>
-
-            <div class="faq-item">
-                <h4>🚚 ¿Hacen envíos a provincia?</h4>
-                <p>Sí, realizamos envíos a todo el Perú. El costo se cotiza según tu ciudad. Escríbeme por WhatsApp para coordinar.</p>
+          </div>
+        
+          <div class="faq-item">
+            <div class="faq-question">🚚 ¿Hacen envíos a provincia? <span class="faq-icon">＋</span></div>
+            <div class="faq-answer">
+              <p>Sí, realizamos envíos a todo el Perú. El costo se cotiza según tu ciudad. Escríbeme por WhatsApp para coordinar.</p>
             </div>
-
-            <div class="faq-item">
-                <h4>💳 ¿Qué métodos de pago aceptan?</h4>
-                <p>Aceptamos transferencias bancarias y Yape/Plin. Para prints es 100% al inicio. Para acuarelas personalizadas es 60% al inicio y 40% antes de la entrega.</p>
+          </div>
+        
+          <div class="faq-item">
+            <div class="faq-question">💳 ¿Qué métodos de pago aceptan? <span class="faq-icon">＋</span></div>
+            <div class="faq-answer">
+              <p>Aceptamos transferencias bancarias y Yape/Plin. Para prints es 100% al inicio. Para acuarelas personalizadas, 60% al inicio y 40% antes de la entrega.</p>
             </div>
-
-            <div class="faq-item">
-                <h4>🎨 ¿Puedo pedir un diseño diferente a los packs?</h4>
-                <p>¡Por supuesto! Puedes combinar ilustraciones de diferentes packs o solicitar una acuarela personalizada completamente única para ti.</p>
+          </div>
+        
+          <div class="faq-item">
+            <div class="faq-question">🎨 ¿Puedo pedir un diseño diferente a los packs? <span class="faq-icon">＋</span></div>
+            <div class="faq-answer">
+              <p>¡Por supuesto! Puedes combinar ilustraciones de diferentes packs o solicitar una acuarela personalizada completamente única para ti.</p>
             </div>
+          </div>
         </div>
+
 
         <div class="section fade-in">
             <h2 class="section-title">Solicita tu Obra Mágica</h2>
@@ -1371,5 +1435,15 @@
         
           document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
+
+    <script>
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const parent = question.parentElement;
+          parent.classList.toggle('active');
+        });
+      });
+    </script>
+
 </body>
 </html>
