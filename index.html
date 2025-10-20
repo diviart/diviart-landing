@@ -787,6 +787,17 @@
         .lightbox .close:hover {
           color: #A6D6C8;
         }
+        /* === Animación fade-in === */
+        .fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -797,7 +808,7 @@
     </div>
 
     <div class="container">
-        <div class="section" style="margin-top: 40px;">
+        <div class="section fade-in" style="margin-top: 40px;">
             <div class="hero-ambientes">
                 <img src="images/ambiente-cuarto-1.jpg" alt="Ambiente 1">
                 <img src="images/ambiente-cuarto-2.jpg" alt="Ambiente 2">
@@ -805,7 +816,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section fade-in">
             <h2 class="section-title">¿Qué estás buscando?</h2>
             <p class="section-subtitle">Elige entre nuestras ilustraciones originales de la colección "Mundos de Ensueño" o una obra única creada especialmente para ti</p>
             
@@ -943,7 +954,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section fade-in">
             <h2 class="section-title" id="packs-section">Colección "Mundos de Ensueño"</h2>
             <p class="section-subtitle">Cada pack cuenta una historia mágica protagonizada por Astral y Mimi, mis personajes originales</p>
             
@@ -1001,7 +1012,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section fade-in">
             <h2 class="section-title" id="acuarelas-section">Acuarelas Personalizadas</h2>
             <p class="section-subtitle">Obras únicas creadas especialmente para ti. Cuéntame tu idea y juntos creamos algo mágico</p>
             
@@ -1051,7 +1062,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section fade-in">
             <h2 class="section-title">Preguntas Frecuentes</h2>
             
             <div class="faq-item">
@@ -1080,7 +1091,7 @@
             </div>
         </div>
 
-        <div class="section">
+        <div class="section fade-in">
             <h2 class="section-title">Solicita tu Obra Mágica</h2>
             <p class="section-subtitle">Completa el formulario y te contactaré por WhatsApp para coordinar todos los detalles</p>
             
@@ -1330,6 +1341,18 @@
           }
         });
     </script>
-    
+    <script>
+          // Detecta cuando los elementos aparecen en pantalla y aplica la animación
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.2 });
+        
+          document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
