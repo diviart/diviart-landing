@@ -1,139 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Diviart - Arte que transforma espacios</title>
     <link rel="icon" href="images/favicon.png" type="image/png">
-    
-    <!-- Meta tags para redes sociales -->
+
+    <!-- Meta -->
     <meta property="og:title" content="Diviart - Arte que transforma espacios">
     <meta property="og:description" content="Prints personalizados y acuarelas únicas para decorar espacios mágicos. Colección Mundos de Ensueño.">
     <meta property="og:image" content="images/logo-astral-diviart.png">
     <meta property="og:type" content="website">
     <meta name="description" content="Arte personalizado para tu hogar. Prints y acuarelas únicas con entrega en Lima. Colección Mundos de Ensueño por Diana Victorero.">
-    
-    <!-- Google Analytics (GRATIS - Descomenta cuando tengas tu ID) -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=TU-ID-AQUI"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'TU-ID-AQUI');
-    </script>
-    -->
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
+    <style>
+        /* ---------- Reset / Base ---------- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #F9F6EE;
             color: #333;
             line-height: 1.6;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* ---------- Header ---------- */
         .header {
-            background: linear-gradient(135deg, rgba(187, 223, 235, 0.9) 0%, rgba(166, 214, 200, 0.9) 100%), 
-                        url('images/banner-fondo.jpg') center/cover;
+            background: linear-gradient(135deg, rgba(187,223,235,0.95) 0%, rgba(166,214,200,0.95) 100%), url('images/banner-fondo.jpg') center/cover no-repeat;
             padding: 30px 20px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-
         .header::before {
             content: '✨';
             position: absolute;
             font-size: 100px;
-            opacity: 0.1;
+            opacity: 0.08;
             top: -20px;
-            left: 10%;
+            left: 6%;
             animation: float 6s ease-in-out infinite;
         }
-
         .header::after {
             content: '🌙';
             position: absolute;
             font-size: 80px;
-            opacity: 0.1;
+            opacity: 0.06;
             bottom: -10px;
-            right: 10%;
+            right: 8%;
             animation: float 8s ease-in-out infinite;
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-18px); }
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
+        .logo-img { max-width: 280px; margin: 0 auto 20px; display:block; filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.08)); }
+        .tagline { font-size: 22px; color: #fff; font-weight: 500; margin-bottom: 12px; text-shadow: 1px 1px 3px rgba(0,0,0,0.12); }
+        .subtitle { font-size: 15px; color: #fff; max-width: 700px; margin: 0 auto; line-height: 1.7; text-shadow: 1px 1px 2px rgba(0,0,0,0.08); }
 
-        .logo-img {
-            max-width: 280px;
-            height: auto;
-            margin: 0 auto 20px;
-            filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.1));
-        }
-
-        .tagline {
-            font-size: 22px;
-            color: #fff;
-            font-weight: 500;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .subtitle {
-            font-size: 16px;
-            color: #fff;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .section {
-            margin: 60px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        /* ---------- Container / Sections ---------- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .section { margin: 60px 0; }
+        .section-title { text-align: center; font-size: 34px; color: #333; margin-bottom: 10px; font-weight: 600; }
+        .section-subtitle { text-align: center; font-size: 15px; color: #666; margin-bottom: 30px; max-width: 700px; margin-left:auto; margin-right:auto; }
         .section-title::after {
             content: '';
             display: block;
@@ -142,712 +74,208 @@
             background: linear-gradient(90deg, #FFE283, #FACEC6);
             margin: 15px auto 0;
             border-radius: 2px;
+            transition: width .4s ease;
         }
+        .section-title:hover::after { width: 110px; }
 
+        /* ---------- Hero Ambientes ---------- */
         .hero-ambientes {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
-
         .hero-ambientes img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
+            width: 100%; height: 300px; object-fit: cover;
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: zoom-in;
         }
+        .hero-ambientes img:hover { transform: scale(1.03); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
 
-        .hero-ambientes img:hover {
-            transform: scale(1.03);
-        }
-
+        /* ---------- Products / Cards ---------- */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
-
         .product-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
+            background: white; border-radius: 20px; padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
             border: 3px solid transparent;
         }
-
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,0.12);
             border-color: #BBDFEB;
         }
+        .product-icon { font-size: 52px; margin-bottom: 18px; text-align:center; }
+        .product-title { font-size: 24px; color:#333; margin-bottom: 12px; text-align:center; font-weight:600; }
+        .product-description { color:#666; font-size:15px; line-height:1.7; text-align:center; margin-bottom:18px; }
+        .price-row { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:8px; }
+        .price-old { color:#999; text-decoration: line-through; font-size:15px; }
+        .price-new { color:#A6D6C8; font-size:22px; font-weight:700; }
+        .promo-badge { background:#FFE283; color:#333; padding:6px 14px; border-radius:18px; display:inline-block; font-weight:700; margin-top:12px; }
+
+        .specs-list { background:#F9F6EE; padding:18px; border-radius:12px; margin-top:18px; border-left:4px solid #A6D6C8; color:#666; }
+        .specs-list h4 { color:#333; margin-bottom:10px; font-size:15px; }
+        .specs-list ul { list-style:none; padding-left:18px; }
+        .specs-list li { padding:6px 0; position:relative; font-size:13px; line-height:1.6; }
+        .specs-list li:before { content:"✓"; position:absolute; left:-18px; color:#A6D6C8; font-weight:bold; }
+
+        .payment-info { background:#FFE283; padding:12px; border-radius:10px; text-align:center; font-weight:600; color:#333; margin-top:15px; }
 
         .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #BBDFEB, #A6D6C8);
-            color: white;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 14px;
-            margin-top: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 12px rgba(187, 223, 235, 0.3);
+            display:inline-block; background: linear-gradient(135deg,#BBDFEB,#A6D6C8);
+            color:white; text-decoration:none; padding:12px 28px; border-radius:25px; font-weight:700;
+            box-shadow: 0 6px 18px rgba(187,223,235,0.28); transition: transform .25s ease, box-shadow .25s ease;
+            font-size:14px;
         }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(187,223,235,0.36); }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(187, 223, 235, 0.5);
-        }
+        /* ---------- Packs ---------- */
+        .packs-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .pack-card { background:white; border-radius:18px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08); transition: transform .35s ease, box-shadow .35s ease; }
+        .pack-card:hover { transform: translateY(-8px); box-shadow:0 18px 45px rgba(0,0,0,0.12); }
+        .pack-image { width:100%; height:280px; object-fit:cover; display:block; }
+        .pack-content { padding:20px 22px 28px; }
+        .pack-title { font-size:20px; margin-bottom:8px; font-weight:600; text-align:left; color:#333; }
+        .pack-description { font-size:14px; color:#666; line-height:1.6; margin-bottom:12px; }
+        .pack-info { background:#F9F6EE; padding:12px; border-radius:8px; border-left:4px solid #A6D6C8; font-size:13px; color:#666; }
 
-        .product-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+        /* ---------- Acuarelas ---------- */
+        .acuarelas-showcase { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:25px; margin-bottom:30px; }
+        .acuarela-example { position:relative; border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.1); transition: transform .35s ease; }
+        .acuarela-example:hover { transform: scale(1.02); }
+        .acuarela-example img { width:100%; height:350px; object-fit:cover; display:block; }
+        .acuarela-badge { position:absolute; top:12px; right:12px; background:rgba(166,214,200,0.95); color:#fff; padding:8px 12px; border-radius:14px; font-weight:700; font-size:12px; }
 
-        .product-title {
-            font-size: 26px;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-            text-align: center;
-        }
+        /* ---------- Steps / FAQ / Boxes ---------- */
+        .process-steps { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:22px; margin:40px 0; }
+        .step-item { background:white; padding:22px; border-radius:14px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.06); position:relative; }
+        .step-number { position:absolute; top:-16px; left:50%; transform:translateX(-50%); background: linear-gradient(135deg,#BBDFEB,#A6D6C8); color:white; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; }
+        .step-item .emoji { font-size:36px; margin:12px 0; }
 
-        .product-description {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 25px;
-            line-height: 1.7;
-            text-align: center;
-        }
+        .faq-item { background:white; padding:22px; border-radius:14px; margin-bottom:18px; box-shadow:0 6px 16px rgba(0,0,0,0.06); border-left:4px solid #A6D6C8; }
 
-        .price-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
+        .info-box { background:#F9F6EE; padding:20px; border-radius:12px; border-left:5px solid #A6D6C8; margin-top:20px; }
 
-        .price-old {
-            font-size: 16px;
-            color: #999;
-            text-decoration: line-through;
+        /* ---------- Form ---------- */
+        .form-section { background:white; border-radius:20px; padding:40px; box-shadow:0 12px 30px rgba(0,0,0,0.08); max-width:760px; margin:0 auto; }
+        .form-group { margin-bottom:18px; }
+        .form-group label { display:block; margin-bottom:8px; color:#333; font-weight:700; font-size:14px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width:100%; padding:12px; border:2px solid #BBDFEB; border-radius:10px; font-size:15px; font-family:inherit;
+            transition:border-color .25s ease, box-shadow .25s ease;
         }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline:none; border-color:#A6D6C8; box-shadow:0 0 0 4px rgba(166,214,200,0.08);
+        }
+        .form-group small { font-size:12px; color:#888; margin-top:6px; display:block; }
 
-        .price-new {
-            font-size: 24px;
-            color: #A6D6C8;
-            font-weight: bold;
-        }
-
-        .price-label {
-            font-size: 13px;
-            color: #888;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            text-align: center;
-        }
-
-        .promo-badge {
-            display: inline-block;
-            background: #FFE283;
-            color: #333;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
-        .specs-list {
-            background: #F9F6EE;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border-left: 4px solid #A6D6C8;
-            text-align: left;
-        }
-
-        .specs-list h4 {
-            color: #333;
-            font-size: 16px;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .specs-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .specs-list li {
-            font-size: 13px;
-            color: #666;
-            padding: 6px 0;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .specs-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #A6D6C8;
-            font-weight: bold;
-        }
-
-        .payment-info {
-            background: #FFE283;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 15px;
-            text-align: center;
-            font-size: 13px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .packs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .pack-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .pack-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .pack-image {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-
-        .pack-content {
-            padding: 25px;
-        }
-
-        .pack-title {
-            font-size: 22px;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .pack-description {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .pack-info {
-            background: #F9F6EE;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 13px;
-            color: #666;
-            border-left: 4px solid #A6D6C8;
-        }
-
-        .acuarelas-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .acuarela-example {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .acuarela-example:hover {
-            transform: scale(1.03);
-        }
-
-        .acuarela-example img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .acuarela-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(166, 214, 200, 0.95);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .step-item {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
-        }
-
-        .step-number {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #BBDFEB, #A6D6C8);
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .step-item .emoji {
-            font-size: 40px;
-            margin: 15px 0;
-        }
-
-        .step-item h4 {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .step-item p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .faq-item {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid #A6D6C8;
-        }
-
-        .faq-item h4 {
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .faq-item p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .form-section {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #BBDFEB;
-            border-radius: 10px;
-            font-size: 16px;
-            font-family: inherit;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #A6D6C8;
-            box-shadow: 0 0 0 3px rgba(166, 214, 200, 0.1);
-        }
-
-        .form-group input:invalid:not(:placeholder-shown),
-        .form-group select:invalid:not(:placeholder-shown) {
-            border-color: #ff6b6b;
-        }
-
-        .form-group input:valid:not(:placeholder-shown),
-        .form-group select:valid:not(:placeholder-shown) {
-            border-color: #51cf66;
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .form-group small {
-            font-size: 12px;
-            color: #999;
-            display: block;
-            margin-top: 5px;
-        }
-
-        .conditional-field {
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .conditional-field { display:none; }
 
         .submit-btn {
-            background: linear-gradient(135deg, #BBDFEB, #A6D6C8);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            font-size: 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(187, 223, 235, 0.4);
+            background: linear-gradient(135deg,#BBDFEB,#A6D6C8);
+            color:white; border:none; padding:16px 28px; font-size:18px; border-radius:50px; cursor:pointer;
+            width:100%; font-weight:800; box-shadow:0 10px 25px rgba(187,223,235,0.36); transition: transform .25s ease, box-shadow .25s ease;
         }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow:0 18px 40px rgba(187,223,235,0.46); }
 
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(187, 223, 235, 0.6);
-        }
+        .info-note { background:#FFE283; padding:14px; border-radius:10px; margin-top:14px; text-align:center; font-size:14px; color:#444; }
 
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .info-note {
-            background: #FFE283;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-            line-height: 1.7;
-        }
-
-        .info-box {
-            background: #F9F6EE;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border-left: 5px solid #A6D6C8;
-        }
-
-        .info-box h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .info-box p {
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-
+        /* ---------- Footer ---------- */
         .footer {
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #FACEC6, #FFE283);
-            color: #666;
-            margin-top: 80px;
+            text-align:center; padding:46px 20px; background: linear-gradient(135deg, #FACEC6, #FFE283); color:#666; margin-top:80px;
         }
+        .footer-logo { max-width:120px; margin:0 auto 12px; display:block; filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.08)); }
+        .social-links a { color:#666; text-decoration:none; margin:0 12px; transition: color .2s ease; font-weight:600; }
+        .social-links a:hover { color:#333; }
 
-        .footer-logo {
-            max-width: 120px;
-            height: auto;
-            margin: 0 auto 20px;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
-        }
-
-        .footer p {
-            margin: 10px 0;
-            font-size: 15px;
-        }
-
-        .social-links {
-            margin-top: 25px;
-        }
-
-        .social-links a {
-            color: #666;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-
-        .social-links a:hover {
-            color: #333;
-        }
-
-        /* Botón flotante WhatsApp */
+        /* ---------- Floating WhatsApp & Back-to-top ---------- */
         .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            animation: pulse 2s infinite;
-            transition: transform 0.3s ease;
+            position: fixed; bottom: 20px; right: 20px; background: #25D366; color:white;
+            width: 60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+            text-decoration:none; box-shadow:0 6px 20px rgba(0,0,0,0.2); z-index:1000; transition: transform .18s ease;
         }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* Botón volver arriba */
+        .whatsapp-float:hover { transform: scale(1.06); }
         .back-to-top {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: linear-gradient(135deg, #BBDFEB, #A6D6C8);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 999;
-            font-size: 24px;
-            font-weight: bold;
-            transition: transform 0.3s ease;
+            position: fixed; bottom: 90px; right: 20px; display:none; align-items:center; justify-content:center;
+            background: linear-gradient(135deg,#BBDFEB,#A6D6C8); color:white; width:50px; height:50px; border-radius:50%;
+            box-shadow:0 6px 18px rgba(0,0,0,0.18); text-decoration:none; z-index:999; font-size:22px; font-weight:700;
         }
+        .back-to-top:hover { transform: translateY(-6px); }
 
-        .back-to-top:hover {
-            transform: translateY(-5px);
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 20px 20px 30px;
-            }
-
-            .logo-img {
-                max-width: 180px;
-            }
-
-            .tagline {
-                font-size: 18px;
-            }
-
-            .subtitle {
-                font-size: 14px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .form-section {
-                padding: 30px 20px;
-            }
-
-            .products-grid,
-            .packs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-ambientes {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-ambientes img {
-                height: 250px;
-            }
-
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                bottom: 15px;
-                right: 15px;
-            }
-
-            .back-to-top {
-                width: 45px;
-                height: 45px;
-                bottom: 80px;
-                right: 15px;
-                font-size: 20px;
-            }
-        }
-        /* Lightbox */
+        /* ---------- Lightbox (fade classic) ---------- */
         .lightbox {
-          display: none;
-          position: fixed;
-          z-index: 2000;
-          padding-top: 60px;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          overflow: auto;
-          background-color: rgba(0,0,0,0.8);
-          animation: fadeIn 0.3s ease;
+            display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%;
+            background-color: rgba(0,0,0,0.82); align-items:center; justify-content:center; padding:30px;
+            animation: lightFadeIn .22s ease;
         }
-        
-        .lightbox-content {
-          margin: auto;
-          display: block;
-          max-width: 90%;
-          max-height: 85vh;
-          border-radius: 10px;
-          box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-        }
-        
-        .lightbox .close {
-          position: absolute;
-          top: 25px;
-          right: 45px;
-          color: white;
-          font-size: 40px;
-          font-weight: bold;
-          cursor: pointer;
-          transition: 0.3s;
-        }
-        
-        .lightbox .close:hover {
-          color: #A6D6C8;
+        @keyframes lightFadeIn { from { opacity:0 } to { opacity:1 } }
+        .lightbox.show { display:flex; }
+        .lightbox-content { max-width:92%; max-height:85vh; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.6); opacity:0; transform: scale(0.98); transition: opacity .18s ease, transform .18s ease; }
+        .lightbox.show .lightbox-content { opacity:1; transform: scale(1); }
+        .lightbox .close { position:absolute; top:22px; right:28px; color:#fff; font-size:36px; cursor:pointer; font-weight:700; transition: color .18s ease; }
+        .lightbox .close:hover { color:#A6D6C8; }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 768px) {
+            .logo-img { max-width:180px; }
+            .header { padding:20px 18px 30px; }
+            .section-title { font-size: 26px; }
+            .hero-ambientes img { height: 250px; }
+            .form-section { padding: 22px; }
+            .back-to-top { bottom: 80px; right: 15px; display:none; }
+            .whatsapp-float { bottom:15px; right:15px; width:55px; height:55px; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
+    <!-- HEADER -->
+    <div class="header fade-in">
         <img src="images/logo-astral-diviart.png" alt="Diviart Logo" class="logo-img">
         <div class="tagline">Creo arte único que transforma espacios</div>
         <div class="subtitle">Prints personalizados & Acuarelas a pedido<br>Mundos de Ensueño • Amor • Empoderamiento</div>
     </div>
 
     <div class="container">
-        <div class="section" style="margin-top: 40px;">
+        <!-- HERO AMBIENTES -->
+        <div class="section" style="margin-top:40px;">
             <div class="hero-ambientes">
-                <img src="images/ambiente-cuarto-1.jpg" alt="Ambiente 1">
-                <img src="images/ambiente-cuarto-2.jpg" alt="Ambiente 2">
-                <img src="images/ambiente-cuarto-3.jpg" alt="Ambiente 3">
+                <img src="images/ambiente-cuarto-1.jpg" alt="Ambiente 1" class="fade-in">
+                <img src="images/ambiente-cuarto-2.jpg" alt="Ambiente 2" class="fade-in">
+                <img src="images/ambiente-cuarto-3.jpg" alt="Ambiente 3" class="fade-in">
             </div>
         </div>
 
+        <!-- PRODUCTS -->
         <div class="section">
-            <h2 class="section-title">¿Qué estás buscando?</h2>
-            <p class="section-subtitle">Elige entre nuestras ilustraciones originales de la colección "Mundos de Ensueño" o una obra única creada especialmente para ti</p>
-            
+            <h2 class="section-title fade-in">¿Qué estás buscando?</h2>
+            <p class="section-subtitle fade-in">Elige entre nuestras ilustraciones originales de la colección "Mundos de Ensueño" o una obra única creada especialmente para ti</p>
+
             <div class="products-grid">
-                <div class="product-card">
+                <!-- Prints -->
+                <div class="product-card fade-in">
                     <div class="product-icon">🖼️</div>
                     <h3 class="product-title">Prints Personalizados</h3>
                     <p class="product-description">Ilustraciones únicas de la colección "Mundos de Ensueño" con el nombre de tu peque escrito a mano con mi caligrafía</p>
-                    
-                    <p class="price-label">Unitario</p>
-                    <div class="price-row">
-                        <span class="price-old">A4: S/100</span>
-                        <span class="price-new">S/85</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="price-old">A3: S/150</span>
-                        <span class="price-new">S/125</span>
-                    </div>
 
-                    <p class="price-label" style="margin-top: 20px;">Pack x2</p>
-                    <div class="price-row">
-                        <span class="price-old">A4: S/220</span>
-                        <span class="price-new">S/166</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="price-old">A3: S/300</span>
-                        <span class="price-new">S/246</span>
-                    </div>
+                    <p class="price-label" style="text-align:center; font-weight:700; margin-top:8px;">Unitario</p>
+                    <div class="price-row"><span class="price-old">A4: S/100</span> <span class="price-new">S/85</span></div>
+                    <div class="price-row"><span class="price-old">A3: S/150</span> <span class="price-new">S/125</span></div>
 
-                    <p class="price-label" style="margin-top: 20px;">Pack x3</p>
-                    <div class="price-row">
-                        <span class="price-old">A4: S/330</span>
-                        <span class="price-new">S/240</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="price-old">A3: S/450</span>
-                        <span class="price-new">S/360</span>
-                    </div>
+                    <p class="price-label" style="text-align:center; font-weight:700; margin-top:16px;">Pack x2</p>
+                    <div class="price-row"><span class="price-old">A4: S/220</span> <span class="price-new">S/166</span></div>
+                    <div class="price-row"><span class="price-old">A3: S/300</span> <span class="price-new">S/246</span></div>
 
-                    <div style="text-align: center;">
-                        <div class="promo-badge">🎉 Oferta especial por tiempo limitado</div>
-                    </div>
+                    <p class="price-label" style="text-align:center; font-weight:700; margin-top:16px;">Pack x3</p>
+                    <div class="price-row"><span class="price-old">A4: S/330</span> <span class="price-new">S/240</span></div>
+                    <div class="price-row"><span class="price-old">A3: S/450</span> <span class="price-new">S/360</span></div>
+
+                    <div style="text-align:center; margin-top:14px;"><div class="promo-badge">🎉 Oferta especial por tiempo limitado</div></div>
 
                     <div class="specs-list">
                         <h4>✨ Incluye:</h4>
@@ -860,95 +288,71 @@
                             <li>Medidas: A4 (20x30cm) | A3 (30x40cm)</li>
                             <li>Entrega: 2-5 días hábiles</li>
                         </ul>
-                        <p style="margin-top: 15px; padding: 15px; background: #fff; border-radius: 8px; font-size: 13px; color: #666; line-height: 1.7;">
-                            💫 <strong>¿Por qué elegir un Print de Diviart?</strong><br><br>
-                            No es una impresión cualquiera. Es arte original diseñado por mí, personalizado con tu nombre escrito digitalmente con mi caligrafía (no uso fuentes genéricas), impreso en calidad profesional que dura años, y enmarcado con amor.<br><br>
-                            Listo para colgar y transformar el espacio de tu peque en un mundo mágico ✨
+
+                        <p style="margin-top:15px; padding:12px; background:#fff; border-radius:8px; font-size:13px; color:#666; line-height:1.6;">
+                            💫 <strong>¿Por qué elegir un Print de Diviart?</strong><br>
+                            Arte original, caligrafía personalizada y materiales profesionales — listo para colgar y llenar de magia cualquier habitación.
                         </p>
                     </div>
 
-                    <div class="payment-info">
-                        💳 Pago: 100% al inicio<br>
-                        📦 Envío se cotiza según distrito
-                    </div>
+                    <div class="payment-info">💳 Pago: 100% al inicio • 📦 Envío se cotiza según distrito</div>
 
-                    <div style="text-align: center;">
+                    <div style="text-align:center; margin-top:16px;">
                         <a href="#packs-section" class="cta-button">Ver Colección "Mundos de Ensueño"</a>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <!-- Acuarelas -->
+                <div class="product-card fade-in">
                     <div class="product-icon">🎨</div>
                     <h3 class="product-title">Acuarelas Personalizadas</h3>
                     <p class="product-description">Obra única e irrepetible creada especialmente para ti con mi estilo de ilustración. Un trabajo artístico 100% personalizado</p>
-                    
-                    <div class="price-row">
-                        <span class="price-old">A5: S/195</span>
-                        <span class="price-new">S/175</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="price-old">A4: S/285</span>
-                        <span class="price-new">S/255</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="price-old">A3: S/450</span>
-                        <span class="price-new">S/365</span>
-                    </div>
 
-                    <div style="text-align: center;">
-                        <div class="promo-badge">🎉 Oferta especial por tiempo limitado</div>
-                    </div>
+                    <div class="price-row"><span class="price-old">A5: S/195</span> <span class="price-new">S/175</span></div>
+                    <div class="price-row"><span class="price-old">A4: S/285</span> <span class="price-new">S/255</span></div>
+                    <div class="price-row"><span class="price-old">A3: S/450</span> <span class="price-new">S/365</span></div>
+
+                    <div style="text-align:center; margin-top:12px;"><div class="promo-badge">🎉 Oferta especial por tiempo limitado</div></div>
 
                     <div class="specs-list">
                         <h4>✨ Incluye:</h4>
                         <ul>
                             <li>Pieza única - Obra original firmada</li>
-                            <li>Colores vibrantes que duran por generaciones (Acuarelas profesionales de alta pigmentación)</li>
-                            <li>Papel de museo que NO se amarilla con el tiempo (100% algodón, libre de ácidos)</li>
-                            <li>Grosor premium anti-deterioro - 300gr (3x más grueso que papel común)</li>
-                            <li>Papel ARCHES profesional - El estándar de galerías de arte</li>
-                            <li>Marco blanco pintado a mano + paspartú (borde interior)</li>
-                            <li>Medidas con marco: A5 (26x32cm) | A4 (32x41cm) | A3 (41x52cm)</li>
-                            <li>Sello de agua + firma del artista</li>
-                            <li>Máximo 2 personajes (otras cantidades consultar)</li>
+                            <li>Papel museo 100% algodón</li>
+                            <li>Materiales profesionales - 300gr</li>
+                            <li>Marco blanco pintado a mano + paspartú</li>
                             <li>Incluye 1 boceto previo + 1 ronda de cambios</li>
-                            <li>Duración: 7-15 días laborables</li>
                         </ul>
-                        <p style="margin-top: 15px; padding: 15px; background: #fff; border-radius: 8px; font-size: 13px; color: #666; line-height: 1.7;">
-                            💎 <strong>¿Por qué elegir una Acuarela de Diviart?</strong><br><br>
-                            <em>Tu concepto, mi arte, una pieza única.</em><br><br>
-                            Cuéntame tu idea (o solo el concepto básico), y yo lo transformo en arte con mi estilo único de ilustración. Cada obra es una pieza original e irrepetible, pintada con materiales de calidad museo que duran generaciones.<br><br>
-                            No es decoración común, es una obra de arte profesional creada especialmente para ti. Un tesoro familiar que perdura 🎨
+
+                        <p style="margin-top:15px; padding:12px; background:#fff; border-radius:8px; font-size:13px; color:#666; line-height:1.6;">
+                            💎 <strong>¿Por qué elegir una Acuarela de Diviart?</strong><br>
+                            Tu concepto, mi estilo: una pieza única que perdura generaciones.
                         </p>
                     </div>
 
-                    <div class="payment-info">
-                        💳 Pago: 60% inicio + 40% antes de entrega<br>
-                        📦 Envío se cotiza según distrito
-                    </div>
+                    <div class="payment-info">💳 60% inicio + 40% antes de entrega • 📦 Envío se cotiza según distrito</div>
 
-                    <div style="text-align: center;">
-                        <a href="#acuarelas-section" class="cta-button">Ver Proceso y Ejemplos</a>
-                    </div>
+                    <div style="text-align:center; margin-top:16px;"><a href="#acuarelas-section" class="cta-button">Ver Proceso y Ejemplos</a></div>
                 </div>
             </div>
 
-            <div class="info-box">
+            <div class="info-box fade-in">
                 <h3>✨ ¿Por qué elegir Diviart?</h3>
                 <p><strong>• 100% Original:</strong> Cada diseño es mi propia creación, no encontrarás copias.</p>
-                <p><strong>• Personalización Real:</strong> Los nombres están escritos a mano con mi caligrafía, no son fuentes digitales.</p>
+                <p><strong>• Personalización Real:</strong> Los nombres están escritos a mano con mi caligrafía.</p>
                 <p><strong>• Calidad Premium:</strong> Materiales profesionales de alta durabilidad.</p>
-                <p><strong>• Obra Única:</strong> Las acuarelas personalizadas son piezas únicas e irrepetibles, creadas solo para tu familia.</p>
+                <p><strong>• Obra Única:</strong> Las acuarelas son piezas irrepetibles.</p>
                 <p><strong>• Firmado por el Artista:</strong> Cada obra lleva mi firma y sello de autenticidad.</p>
             </div>
         </div>
 
+        <!-- PACKS -->
         <div class="section">
-            <h2 class="section-title" id="packs-section">Colección "Mundos de Ensueño"</h2>
-            <p class="section-subtitle">Cada pack cuenta una historia mágica protagonizada por Astral y Mimi, mis personajes originales</p>
-            
+            <h2 class="section-title fade-in" id="packs-section">Colección "Mundos de Ensueño"</h2>
+            <p class="section-subtitle fade-in">Cada pack cuenta una historia mágica protagonizada por Astral y Mimi</p>
+
             <div class="packs-grid">
-                <div class="pack-card">
+                <div class="pack-card fade-in">
                     <img src="images/pack-explorador-estrellas.jpg" alt="Explorador de Estrellas" class="pack-image">
                     <div class="pack-content">
                         <h3 class="pack-title">🌟 Explorador de Estrellas</h3>
@@ -957,7 +361,7 @@
                     </div>
                 </div>
 
-                <div class="pack-card">
+                <div class="pack-card fade-in">
                     <img src="images/pack-magia-arcoiris.jpg" alt="Magia en el Arcoíris" class="pack-image">
                     <div class="pack-content">
                         <h3 class="pack-title">🌈 Magia en el Arcoíris</h3>
@@ -966,7 +370,7 @@
                     </div>
                 </div>
 
-                <div class="pack-card">
+                <div class="pack-card fade-in">
                     <img src="images/pack-suenos-nubes.jpg" alt="Sueños entre Nubes" class="pack-image">
                     <div class="pack-content">
                         <h3 class="pack-title">☁️ Sueños entre Nubes</h3>
@@ -975,7 +379,7 @@
                     </div>
                 </div>
 
-                <div class="pack-card">
+                <div class="pack-card fade-in">
                     <img src="images/pack-cielos-colores.jpg" alt="Cielos de Colores" class="pack-image">
                     <div class="pack-content">
                         <h3 class="pack-title">🌤️ Cielos de Colores</h3>
@@ -984,7 +388,7 @@
                     </div>
                 </div>
 
-                <div class="pack-card">
+                <div class="pack-card fade-in">
                     <img src="images/pack-sol-luna.jpg" alt="Sol & Luna" class="pack-image">
                     <div class="pack-content">
                         <h3 class="pack-title">🌙 Sol & Luna</h3>
@@ -994,29 +398,30 @@
                 </div>
             </div>
 
-            <div class="info-box">
+            <div class="info-box fade-in">
                 <h3>💫 Conoce a Astral y Mimi</h3>
-                <p><strong>Astral</strong> representa nuestro niño interior y está inspirado en las estrellas y los copos de nieve. Es la inocencia, la magia y los sueños.</p>
-                <p><strong>Mimi</strong> representa esa fuerza de valentía y creatividad que nos impulsa a hacer cosas nuevas. Es el coraje, la aventura y la imaginación.</p>
+                <p><strong>Astral</strong> representa nuestro niño interior; inspirado en las estrellas y los copos de nieve.</p>
+                <p><strong>Mimi</strong> representa valentía y creatividad — el empuje para imaginar y crear.</p>
             </div>
         </div>
 
+        <!-- ACUARELAS -->
         <div class="section">
-            <h2 class="section-title" id="acuarelas-section">Acuarelas Personalizadas</h2>
-            <p class="section-subtitle">Obras únicas creadas especialmente para ti. Cuéntame tu idea y juntos creamos algo mágico</p>
-            
+            <h2 class="section-title fade-in" id="acuarelas-section">Acuarelas Personalizadas</h2>
+            <p class="section-subtitle fade-in">Obras únicas creadas especialmente para ti. Cuéntame tu idea y juntos creamos algo mágico</p>
+
             <div class="acuarelas-showcase">
-                <div class="acuarela-example">
+                <div class="acuarela-example fade-in">
                     <img src="images/acuarela-ejemplo-1.jpg" alt="Acuarela Ejemplo 1">
                     <div class="acuarela-badge">Obra Única</div>
                 </div>
-                <div class="acuarela-example">
+                <div class="acuarela-example fade-in">
                     <img src="images/acuarela-ejemplo-2.jpg" alt="Acuarela Ejemplo 2">
                     <div class="acuarela-badge">Obra Única</div>
                 </div>
             </div>
 
-            <div class="process-steps">
+            <div class="process-steps fade-in">
                 <div class="step-item">
                     <div class="step-number">1</div>
                     <div class="emoji">💭</div>
@@ -1043,48 +448,49 @@
                 </div>
             </div>
 
-            <div class="info-note">
+            <div class="info-note fade-in">
                 <strong>⏱️ Tiempos de entrega:</strong><br>
                 Prints personalizados: 2-5 días hábiles<br>
-                Acuarelas personalizadas: 7-15 días hábiles<br>
-                (Trabajo tiempo completo como ingeniera, pero tu obra recibirá toda mi dedicación y amor 💕)
+                Acuarelas personalizadas: 7-15 días hábiles
             </div>
         </div>
 
+        <!-- FAQ -->
         <div class="section">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
-            
-            <div class="faq-item">
+            <h2 class="section-title fade-in">Preguntas Frecuentes</h2>
+
+            <div class="faq-item fade-in">
                 <h4>📦 ¿Cuánto demora el envío?</h4>
                 <p>En Lima, las entregas se realizan en 1-2 días después de completada la obra. Para provincia, consultame por WhatsApp y coordinaremos el envío.</p>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item fade-in">
                 <h4>👀 ¿Puedo ver el diseño antes de que lo impriman/pinten?</h4>
                 <p>En acuarelas personalizadas, te envío un boceto previo para tu aprobación (incluye 1 ronda de cambios). En prints, el diseño ya está listo y puedes verlo en las fotos de la colección.</p>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item fade-in">
                 <h4>🚚 ¿Hacen envíos a provincia?</h4>
                 <p>Sí, realizamos envíos a todo el Perú. El costo se cotiza según tu ciudad. Escríbeme por WhatsApp para coordinar.</p>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item fade-in">
                 <h4>💳 ¿Qué métodos de pago aceptan?</h4>
                 <p>Aceptamos transferencias bancarias y Yape/Plin. Para prints es 100% al inicio. Para acuarelas personalizadas es 60% al inicio y 40% antes de la entrega.</p>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item fade-in">
                 <h4>🎨 ¿Puedo pedir un diseño diferente a los packs?</h4>
                 <p>¡Por supuesto! Puedes combinar ilustraciones de diferentes packs o solicitar una acuarela personalizada completamente única para ti.</p>
             </div>
         </div>
 
+        <!-- FORM -->
         <div class="section">
-            <h2 class="section-title">Solicita tu Obra Mágica</h2>
-            <p class="section-subtitle">Completa el formulario y te contactaré por WhatsApp para coordinar todos los detalles</p>
-            
-            <div class="form-section">
+            <h2 class="section-title fade-in">Solicita tu Obra Mágica</h2>
+            <p class="section-subtitle fade-in">Completa el formulario y te contactaré por WhatsApp para coordinar todos los detalles</p>
+
+            <div class="form-section fade-in">
                 <form id="orderForm">
                     <div class="form-group">
                         <label for="name">Tu Nombre *</label>
@@ -1201,7 +607,8 @@
         </div>
     </div>
 
-    <div class="footer">
+    <!-- FOOTER -->
+    <div class="footer fade-in">
         <img src="images/logo-mimi.png" alt="Mimi Logo" class="footer-logo">
         <p><strong>Diviart</strong> by Diana Victorero</p>
         <p>Ingeniera de día, artista de corazón 💫</p>
@@ -1212,124 +619,182 @@
         <p style="margin-top: 20px; font-size: 12px; color: #888;">© 2024 Diviart - Todos los derechos reservados</p>
     </div>
 
-    <!-- Lightbox para ver imágenes en grande -->
-    <div id="lightbox" class="lightbox">
-      <span class="close">&times;</span>
-      <img class="lightbox-content" id="lightbox-img" alt="Vista ampliada">
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" tabindex="-1">
+      <button class="close" aria-label="Cerrar">&times;</button>
+      <img class="lightbox-content" id="lightbox-img" alt="Vista ampliada de imagen"/>
     </div>
 
-    <!-- Botón flotante WhatsApp -->
-    <a href="https://wa.me/51992990301?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20Diviart%20✨" target="_blank" class="whatsapp-float" title="Chatea por WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white">
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/51992990301?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20Diviart%20✨" target="_blank" class="whatsapp-float" title="Chatea por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="white" aria-hidden="true">
             <path d="M20.52 3.48A11.92 11.92 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.59A11.9 11.9 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.2-3.48-8.52zM12 22.05a9.9 9.9 0 01-5.05-1.37l-.36-.21-3.65.94.98-3.55-.23-.37A9.9 9.9 0 012.05 12C2.05 6.51 6.51 2.05 12 2.05S21.95 6.51 21.95 12 17.49 22.05 12 22.05z"/>
             <path d="M17.17 14.77c-.28-.14-1.63-.8-1.88-.89-.25-.09-.43-.14-.61.14-.18.28-.7.89-.86 1.07-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.62-1.54-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.32.43-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.28-.96.93-.96 2.26 0 1.32.98 2.6 1.12 2.78.14.18 1.92 2.93 4.67 4.11.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.63-.67 1.86-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.2-.52-.34z"/>
         </svg>
     </a>
 
-    <!-- Botón volver arriba -->
-    <a href="#" id="backToTop" class="back-to-top">↑</a>
+    <!-- BACK TO TOP -->
+    <a href="#" id="backToTop" class="back-to-top" aria-label="Volver arriba">↑</a>
 
+    <!-- ------------- SCRIPTS ------------- -->
     <script>
-        // Mostrar/ocultar campos del formulario
-        const productType = document.getElementById('productType');
-        const printFields = document.getElementById('printFields');
-        const acuarelaFields = document.getElementById('acuarelaFields');
+        // ---------- Fade-in observer for sections and imgs ----------
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.18 });
 
-        productType.addEventListener('change', function() {
-            printFields.style.display = this.value === 'print' ? 'block' : 'none';
-            acuarelaFields.style.display = this.value === 'acuarela' ? 'block' : 'none';
-        });
-
-        // Enviar formulario por WhatsApp
-        document.querySelector('.submit-btn').addEventListener('click', function() {
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const distrito = document.getElementById('distrito').value.trim();
-            const type = productType.value;
-
-            if (!name || !phone || !type) {
-                alert('Por favor completa los campos obligatorios (Nombre, WhatsApp y Tipo de producto)');
-                return;
-            }
-
-            let msg = `--- NUEVA SOLICITUD DIVIART ---\n\n`;
-            msg += `Nombre: ${name}\n`;
-            msg += `Telefono: ${phone}\n`;
-            if (email) msg += `Email: ${email}\n`;
-            if (distrito) msg += `Distrito: ${distrito}\n`;
-            msg += `\n`;
-
-            if (type === 'print') {
-                const q = document.getElementById('quantity').value;
-                const p = document.getElementById('pack').value;
-                const s = document.getElementById('printSize').value;
-                const f = document.getElementById('printFrame').value;
-                const pers = document.getElementById('personalization').value;
-
-                msg += `>> PRINT PERSONALIZADO\n`;
-                if (q) msg += `- Cantidad: ${q === '1' ? 'Unitario' : q === '2' ? 'Pack x2' : q === '3' ? 'Pack x3' : 'Mas de 3'}\n`;
-                if (p) msg += `- Pack: ${document.querySelector(`#pack option[value="${p}"]`).text}\n`;
-                if (s) msg += `- Tamanio: ${s}\n`;
-                if (f) msg += `- Marco: ${document.querySelector(`#printFrame option[value="${f}"]`).text}\n`;
-                if (pers) msg += `- Nombre(s): ${pers}\n`;
-            }
-
-            if (type === 'acuarela') {
-                const aSize = document.getElementById('acuarelaSize').value;
-                const aDet = document.getElementById('acuarelaDetails').value;
-                msg += `>> ACUARELA PERSONALIZADA\n`;
-                if (aSize) msg += `- Tamanio: ${aSize}\n`;
-                if (aDet) msg += `- Idea: ${aDet}\n`;
-            }
-
-            const comments = document.getElementById('comments').value.trim();
-            if (comments) msg += `\nComentarios adicionales:\n${comments}\n`;
-            msg += `\n---\nGracias por tu interes en Diviart!`;
-
-            const whatsappNumber = '51992990301';
-            const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-            window.open(waURL, '_blank');
-        });
-
-        // Botón volver arriba
-        window.onscroll = function() {
-            const btn = document.getElementById('backToTop');
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                btn.style.display = 'flex';
-            } else {
-                btn.style.display = 'none';
-            }
-        };
-
-        document.getElementById('backToTop').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-
-    <script>
-    // --- Lightbox para imágenes ---
-        document.querySelectorAll('.hero-ambientes img, .pack-image, .acuarela-example img')
-          .forEach(img => {
-            img.addEventListener('click', () => {
-              const lightbox = document.getElementById('lightbox');
-              const lightboxImg = document.getElementById('lightbox-img');
-              lightboxImg.src = img.src;
-              lightbox.style.display = 'block';
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            // also observe images without explicit class (packs etc.)
+            document.querySelectorAll('.pack-image, .hero-ambientes img, .acuarela-example img').forEach(img => {
+                if (!img.classList.contains('fade-in')) img.classList.add('fade-in');
+                observer.observe(img);
             });
-          });
-        
-        document.querySelector('.lightbox .close').addEventListener('click', () => {
-          document.getElementById('lightbox').style.display = 'none';
         });
-        
-        document.getElementById('lightbox').addEventListener('click', (e) => {
-          if (e.target.id === 'lightbox') {
-            e.target.style.display = 'none';
-          }
-        });
+
+        // ---------- Form conditional fields ----------
+        (function() {
+            const productType = document.getElementById('productType');
+            const printFields = document.getElementById('printFields');
+            const acuarelaFields = document.getElementById('acuarelaFields');
+
+            // initial state
+            printFields.style.display = 'none';
+            acuarelaFields.style.display = 'none';
+
+            productType.addEventListener('change', function() {
+                printFields.style.display = (this.value === 'print') ? 'block' : 'none';
+                acuarelaFields.style.display = (this.value === 'acuarela') ? 'block' : 'none';
+            });
+        })();
+
+        // ---------- Submit -> WhatsApp ----------
+        (function() {
+            const sendBtn = document.querySelector('.submit-btn');
+            sendBtn.addEventListener('click', function() {
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const distrito = document.getElementById('distrito').value.trim();
+                const productType = document.getElementById('productType').value;
+
+                if (!name || !phone || !productType) {
+                    alert('Por favor completa los campos obligatorios (Nombre, WhatsApp y Tipo de producto)');
+                    return;
+                }
+
+                let msg = '--- NUEVA SOLICITUD DIVIART ---\\n\\n';
+                msg += `Nombre: ${name}\\n`;
+                msg += `Telefono: ${phone}\\n`;
+                if (email) msg += `Email: ${email}\\n`;
+                if (distrito) msg += `Distrito: ${distrito}\\n`;
+                msg += '\\n';
+
+                if (productType === 'print') {
+                    const q = document.getElementById('quantity').value;
+                    const p = document.getElementById('pack').value;
+                    const s = document.getElementById('printSize').value;
+                    const f = document.getElementById('printFrame').value;
+                    const pers = document.getElementById('personalization').value;
+
+                    msg += '>> PRINT PERSONALIZADO\\n';
+                    msg += `- Cantidad: ${q ? (q === '1' ? 'Unitario' : q === '2' ? 'Pack x2' : q === '3' ? 'Pack x3' : 'Más de 3') : 'No especificado'}\\n`;
+                    if (p) msg += `- Pack: ${document.querySelector(`#pack option[value=\"${p}\"]`).text}\\n`;
+                    if (s) msg += `- Tamaño: ${s}\\n`;
+                    if (f) msg += `- Marco: ${document.querySelector(`#printFrame option[value=\"${f}\"]`).text}\\n`;
+                    if (pers) msg += `- Nombre(s): ${pers}\\n`;
+                }
+
+                if (productType === 'acuarela') {
+                    const aSize = document.getElementById('acuarelaSize').value;
+                    const aDet = document.getElementById('acuarelaDetails').value;
+                    msg += '>> ACUARELA PERSONALIZADA\\n';
+                    if (aSize) msg += `- Tamaño: ${aSize}\\n`;
+                    if (aDet) msg += `- Idea: ${aDet}\\n`;
+                }
+
+                const comments = document.getElementById('comments').value.trim();
+                if (comments) msg += `\\nComentarios adicionales:\\n${comments}\\n`;
+
+                msg += '\\n---\\nGracias por tu interes en Diviart!';
+
+                const whatsappNumber = '51992990301';
+                const waURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+                window.open(waURL, '_blank');
+            });
+        })();
+
+        // ---------- Back to top ----------
+        (function() {
+            const btn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) btn.style.display = 'flex';
+                else btn.style.display = 'none';
+            });
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+
+        // ---------- Lightbox improved (fade classic, close X / outside / Esc) ----------
+        (function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = lightbox.querySelector('.close');
+            let lastScrollY = 0;
+
+            function openLightbox(src) {
+                lastScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+                lightboxImg.src = src;
+                lightbox.classList.add('show');
+                lightbox.setAttribute('aria-hidden', 'false');
+                // prevent background scroll
+                document.body.style.overflow = 'hidden';
+                // focus for accessibility
+                closeBtn.focus();
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('show');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                // restore scroll position
+                window.scrollTo({ top: lastScrollY, behavior: 'instant' in document.documentElement.style ? 'instant' : 'auto' });
+                // clear src
+                setTimeout(() => { lightboxImg.src = ''; }, 200);
+            }
+
+            // Attach to all images
+            const selectors = document.querySelectorAll('.hero-ambientes img, .pack-image, .acuarela-example img');
+            selectors.forEach(img => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', () => {
+                    const src = img.dataset.large || img.src;
+                    openLightbox(src);
+                });
+            });
+
+            // close X
+            closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+
+            // click outside image
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Esc key
+            document.addEventListener('keydown', (e) => {
+                if ((e.key === 'Escape' || e.key === 'Esc') && lightbox.classList.contains('show')) {
+                    closeLightbox();
+                }
+            });
+        })();
     </script>
-    
 </body>
 </html>
