@@ -855,6 +855,37 @@
         .faq-item.active .faq-icon {
           transform: rotate(45deg);
         }
+
+        /* Menu de navegación */
+         .main-nav {
+          display: flex;
+          justify-content: center;
+          gap: 32px;
+          background: linear-gradient(to bottom, #D1E9E5, #A6D6C8);
+          padding: 14px 0;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+          position: relative;
+          z-index: 100;
+        }
+        .main-nav a {
+          color: #3b3b3b;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .main-nav a:hover {
+          color: #2a7260;
+          transform: translateY(-1px);
+        }
+        @media (max-width: 700px) {
+          .main-nav {
+            flex-wrap: wrap;
+            gap: 18px;
+            padding: 10px;
+            font-size: 14px;
+          }
+        }
+
     </style>
 </head>
 <body>
@@ -864,6 +895,15 @@
         <div class="subtitle">Prints personalizados & Acuarelas a pedido<br>Mundos de Ensueño • Amor • Empoderamiento</div>
     </div>
 
+    <!-- 🌿 Menú de navegación debajo del header -->
+    <div class="main-nav fade-in">
+      <a href="#prints-section">Prints</a>
+      <a href="#packs-section">Packs</a>
+      <a href="#acuarelas-section">Acuarelas</a>
+      <a href="#faq">Preguntas Frecuentes</a>
+      <a href="#formulario">Contacto</a>
+    </div>
+    
     <div class="container">
         <div class="section fade-in" style="margin-top: 40px;">
             <h2 class="section-title">Ambientes que inspiran</h2>
