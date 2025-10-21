@@ -877,6 +877,24 @@
           color: #6FAE9C;
         }
 
+        /* Menú vertical en móvil */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+            }
+            
+            .main-nav a {
+                padding: 16px 20px;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+                text-align: center;
+            }
+            
+            .main-nav a:last-child {
+                border-bottom: none;
+            }
+        }
 
     </style>
 </head>
