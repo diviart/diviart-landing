@@ -931,7 +931,7 @@
                 <img src="images/ambiente-cuarto-3.jpg" alt="Ambiente 3">
         </div>
  
-        <div class="section">
+        <div class="section fade-in">
             <h2 class="section-title" id="precios-section">¿Qué estás buscando?</h2>
             <p class="section-subtitle">Elige entre nuestros prints listos de la colección o una obra única creada especialmente para ti.</p>
             
@@ -1488,7 +1488,10 @@
                 observer.unobserve(entry.target);
               }
             });
-          }, { threshold: 0.2 });
+          }, { 
+                threshold: 0.05,  // Más sensible - se activa con solo 5% visible
+                rootMargin: '50px' // Empieza la animación 50px ANTES de que entre en pantalla
+          });
         
           document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
